@@ -22,7 +22,13 @@ bool Stack::isEmpty()
 
 int Stack::getTop()
 {
-    return this->top->value;
+    int top = (int)NULL;
+
+    if (this->top) {
+        top = this->top->value;
+    }
+
+    return top;
 }
 
 int Stack::getSize()
