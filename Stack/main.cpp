@@ -33,15 +33,15 @@ void testStack()
     cout << "stack->getSize: " << stack->getSize() << endl;
 
     for (int i = 9; i >= 0; i--) {
-        int *popped = stack->pop();
-        if (*popped != values[i]) {
+        int popped = *stack->pop();
+        if (popped != values[i]) {
             cout << "ERROR: Error while removing value from the stack.\n";
             cout << "Expected: " << values[i] << "\nActual: " << popped << endl;
             delete stack;
             return;
         }
         else {
-            cout << "Removing from stack: " << values [i] << endl;
+            cout << "Removing from stack: " << popped << endl;
         }
     }
 

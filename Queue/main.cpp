@@ -37,9 +37,11 @@ void testQueue()
          if (dequeued != values[i]) {
             cout << "ERROR: Error while removing the " << i+1 << " value from the queue.\n";
             cout << "Expected: " << values[i] << "\nActual: " << dequeued << endl;
+            delete queue;
+            return;
          }
          else {
-             cout << "Removing from queue: " << values [i] << endl;
+             cout << "Removing from queue: " << dequeued << endl;
          }
     }
 
