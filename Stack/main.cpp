@@ -15,7 +15,7 @@ int main()
 
 void testStack()
 {
-    Stack *stack = new Stack();
+    Stack<int> *stack = new Stack<int>();
     int values[10];
 
     srand(time(NULL));
@@ -26,15 +26,15 @@ void testStack()
     for (int i = 0; i < 10; i++) {
         values[i] = rand() % 100 + 1;
         cout << "Adding to stack: " << values[i] << endl;
-        stack->push(values[i]);
+        stack->push(&values[i]);
     }
 
     cout << "stack->isEmpty: " << stack->isEmpty() << endl;
     cout << "stack->getSize: " << stack->getSize() << endl;
 
     for (int i = 9; i >= 0; i--) {
-        int popped = stack->pop();
-        if (popped != values[i]) {
+        int *popped = stack->pop();
+        if (*popped != values[i]) {
             cout << "ERROR: Error while removing value from the stack.\n";
             cout << "Expected: " << values[i] << "\nActual: " << popped << endl;
             delete stack;
