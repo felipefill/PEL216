@@ -3,8 +3,7 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.cpp \
-    stack.cc
+SOURCES += main.cpp
 
 HEADERS += \
     stack.h
