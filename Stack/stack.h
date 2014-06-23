@@ -64,8 +64,12 @@ public:
         T_class *pop = NULL;
 
         if (this->top) {
-            pop = this->top->value;
-            this->top = this->top->nextElement;
+            StackElement *poppedElement = this->top;
+            pop = poppedElement->value;
+
+            this->top = poppedElement->nextElement;
+
+            delete poppedElement;
             this->size--;
         }
 
