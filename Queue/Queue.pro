@@ -3,8 +3,7 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.cpp \
-    queue.cc
+SOURCES += main.cpp
 
 HEADERS += \
     queue.h
