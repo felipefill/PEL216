@@ -1,16 +1,16 @@
 #ifndef STACK_H
 #define STACK_H
 
-template <class T_class>
+template <class T>
 class Stack
 {
 private:
     class StackElement {
       public:
-        T_class *value;
+        T *value;
         StackElement *nextElement;
 
-        inline StackElement(T_class *value, StackElement *nextElement)
+        inline StackElement(T *value, StackElement *nextElement)
         {
             this->value = value;
             this->nextElement = nextElement;
@@ -27,14 +27,14 @@ public:
         this->top = NULL;
     }
 
-    inline bool isEmpty()
+    inline bool isEmpty() const
     {
         return this->top == NULL;
     }
 
-    inline T_class *getTop()
+    inline T *getTop() const
     {
-        T_class *top = NULL;
+        T *top = NULL;
 
         if (this->top) {
             top = this->top->value;
@@ -43,12 +43,12 @@ public:
         return top;
     }
 
-    inline int getSize()
+    inline int getSize() const
     {
         return this->size;
     }
 
-    inline void push(T_class *value)
+    inline void push(T *value)
     {
         StackElement *newElement = new StackElement(value, NULL);
         if (this->top) {
@@ -59,9 +59,9 @@ public:
         this->size++;
     }
 
-    inline T_class *pop()
+    inline T *pop()
     {
-        T_class *pop = NULL;
+        T *pop = NULL;
 
         if (this->top) {
             StackElement *poppedElement = this->top;

@@ -29,14 +29,25 @@ public:
         this->size = 0;
     }
 
-    inline bool isEmpty()
+    inline bool isEmpty() const
     {
         return this->size == 0;
     }
 
-    inline int getSize()
+    inline int getSize() const
     {
         return this->size;
+    }
+
+    inline T *getTop() const
+    {
+        T *top = NULL;
+
+        if (this->top) {
+            top = this->top->value;
+        }
+
+        return top;
     }
 
     inline void queue(T *value)
