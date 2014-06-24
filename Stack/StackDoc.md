@@ -5,10 +5,10 @@ Para essa tarefa foi desenvolvida uma E.D. que empilha qualquer tipo de elemento
  	- Construtor, responsável por inicializar a estrutura
 - `bool isEmpty()`
 	- Método que diz se a fila está vazia (`true` para vazia, `false` para fila com elementos).
-- `T *getTop()`
-	- Devolve o primeiro elemento da pilha, sem remove-lo da estrutura.
 - `int getSize()`
 	- Devolve o tamanho atual da estrutura, isto é, a quantidade de elementos empilhados.
+- `T *getTop()`
+  - Devolve o primeiro elemento da pilha, sem remove-lo da estrutura.
 - `void push(T *value)`
 	- Empilha um elemento do tipo T, onde T é o tipo/classe com o qual esta estrutura trabalha.
 - `T *pop()`

@@ -7,6 +7,8 @@ Para essa tarefa foi desenvolvida uma E.D. que enfileira qualquer tipo de elemen
 	- Método que diz se a fila está vazia (`true` para vazia, `false` para fila com elementos).
 - `int getSize()`
 	- Devolve o tamanho atual da estrutura, isto é, a quantidade de elementos enfileirados.
+- `T *getTop()`
+  - Devolve o primeiro elemento da fila, sem remove-lo da estrutura.
 - `void queue(T *value)`
 	- Enfileira um elemento do tipo T, onde T é o tipo/classe com o qual esta estrutura trabalha.
 - `T *dequeue()`
