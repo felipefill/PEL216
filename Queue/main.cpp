@@ -15,8 +15,8 @@ int main()
 
 void testQueue()
 {
-    Queue *queue = new Queue();
-    int values[20];
+    Queue<int> *queue = new Queue<int>();
+    int values[10];
 
     srand(time(NULL));
 
@@ -26,14 +26,14 @@ void testQueue()
     for (int i = 0; i < 10; i++) {
         values[i] = rand() % 100 + 1;
         cout << "Adding to queue: " << values[i] << endl;
-        queue->queue(values[i]);
+        queue->queue(&values[i]);
     }
 
     cout << "queue->isEmpty: " << queue->isEmpty() << endl;
     cout << "queue->getSize: " << queue->getSize() << endl;
 
     for (int i = 0; i < 10; i++) {
-         int dequeued = queue->dequeue();
+         int dequeued = *queue->dequeue();
          if (dequeued != values[i]) {
             cout << "ERROR: Error while removing the " << i+1 << " value from the queue.\n";
             cout << "Expected: " << values[i] << "\nActual: " << dequeued << endl;
