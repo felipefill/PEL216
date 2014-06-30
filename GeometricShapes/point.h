@@ -3,18 +3,20 @@
 
 class Point
 {
-    float x_;
-    float y_;
+    double x_;
+    double y_;
 
 public:
-    Point(float x, float y);
-    ~Point();
+    Point();
+    Point(double x, double y);
 
-    inline void set_x(float x) { x_ = x; }
-    inline float x() const { return x_; }
+    inline void set_x(double x) { x_ = x; }
+    inline double x() const { return x_; }
 
-    inline void set_y(float y) { y_ = y; }
-    inline float y() const { return y_; }
+    inline void set_y(double y) { y_ = y; }
+    inline double y() const { return y_; }
+
+    double operator-(Point *p);
 };
 
 #endif // POINT_H
