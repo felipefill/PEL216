@@ -1,6 +1,8 @@
 # Mac OSx
 .DS_Store
 .metadata
+Debug/
+RemoteSystemsTempFiles/
 
 # C++ objects and libs
 
