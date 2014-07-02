@@ -10,12 +10,14 @@ private:
     std::vector<Point> points_;
 
 public:
-    virtual void print() = 0;
-    virtual double area() = 0;
+    Shape();
+
+    void addPoint(Point &p);
+    void print();
 
     int numberOfSides();
+    double area();
 
-    inline void set_points(std::vector<Point> points) { points_ = points; }
     inline std::vector<Point> points() const { return points_; }
 };
 

@@ -6,12 +6,17 @@ using namespace std;
 
 Circle::Circle(double radius)
 {
-	// By default we will use a single point at (0,0)
-	vector<Point> points;
-	points.push_back(Point(0, 0));
+	Point point = Point(0,0);
+	addPoint(point);
 
-	set_points(points);
 	radius_ = radius;
+}
+
+void Circle::addPoint(Point &p)
+{
+	if (points().size() == 0) {
+		Shape::addPoint(p);
+	}
 }
 
 double Circle::area()

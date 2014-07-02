@@ -11,11 +11,13 @@ private:
 public:
     Circle(double radius);
 
-    void print();
-    double area();
-
     inline void set_radius(double radius) { radius_ = radius; }
     inline double radius() const { return radius_; }
+
+    // Override from parent
+	void print();
+	double area();
+	void addPoint(Point &p);
 };
 
 #endif // CIRCLE_H
