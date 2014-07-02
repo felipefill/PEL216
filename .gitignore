@@ -1,3 +1,7 @@
+# Mac OSx
+.DS_Store
+.metadata
+
 # C++ objects and libs
 
 *.slo
