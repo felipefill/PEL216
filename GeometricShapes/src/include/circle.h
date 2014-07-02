@@ -1,15 +1,18 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-#include "point.h"
+#include "shape.h"
 
-class Circle : public Point
+class Circle : public Shape
 {
 private:
     double radius_;
 
 public:
-    Circle();
+    Circle(double radius);
+
+    void print();
+    double area();
 
     inline void set_radius(double radius) { radius_ = radius; }
     inline double radius() const { return radius_; }
