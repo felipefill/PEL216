@@ -16,7 +16,7 @@ public:
     inline void set_y(double y) { y_ = y; }
     inline double y() const { return y_; }
 
-    double operator-(Point *p);
+    double operator-(Point &p);
 };
 
 #endif // POINT_H

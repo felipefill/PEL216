@@ -13,7 +13,7 @@ Point::Point(double x, double y)
     y_ = y;
 }
 
-double Point::operator -(Point *p)
+double Point::operator -(Point &p)
 {
-    return pow(x_ - p->x(), 2.0f) + pow(y_ - p->y(), 2.0f);
+    return sqrt(pow(x_ - p.x(), 2.0f) + pow(y_ - p.y(), 2.0f));
 }
