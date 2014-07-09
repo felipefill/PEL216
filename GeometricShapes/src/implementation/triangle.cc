@@ -4,24 +4,31 @@
 
 using namespace std;
 
+/********************************************************
+ ******************* PUBLIC METHODS ********************
+ ********************************************************/
+
+/***
+ * Default constructor
+ */
 Triangle::Triangle()
 {
+	height_ = 0;
 }
 
+/***
+ * Calculates the height of the triangle
+ */
 double Triangle::height()
 {
-	double height = 0.0f;
-	double tArea = area();
-
-	if (tArea > 0) {
-		// area = 0.5*base*height
-		// We will use the first side as base
-		height = tArea / (0.5 * sides_.at(0));
-	}
-
-	return height;
+	// area = 0.5*base*height
+	// We will use the first side as base
+	return area() / (0.5 * sides_.at(0));
 }
 
+/***
+ * Adds a new point to the triangle composition
+ */
 void Triangle::addPoint(Point &p)
 {
 	if (points().size() < 3) {
@@ -35,6 +42,9 @@ void Triangle::addPoint(Point &p)
 	}
 }
 
+/***
+ * Calculates the area of the triangle
+ */
 double Triangle::area()
 {
 	double area = 0.0f;
@@ -51,10 +61,16 @@ double Triangle::area()
 
 		area = sqrt(s * (s - sides_.at(0)) * (s - sides_.at(1)) * (s - sides_.at(2)));
 	}
+	else {
+		//TODO: Throw exception because we dont have 3 sides
+	}
 
 	return area;
 }
 
+/***
+ * Prints out information about the triangle, containing its points, measures, angles, height and area.
+ */
 void Triangle::print()
 {
 	//TODO: only go through if we have 3 sides
@@ -85,6 +101,10 @@ void Triangle::print()
 	cout << "Lastly, I have an area of " << area() << endl;
 }
 
+/********************************************************
+ ******************* PRIVATE METHODS ********************
+ ********************************************************/
+
 void Triangle::calcTriangle()
 {
 	calcSides();
@@ -114,7 +134,7 @@ void Triangle::calcAngles()
 	}
 
 	double dividend = -1 * pow(sides_.at(largestAngleIndex), 2.0f);
-	double divisor = 2;
+	double divisor = 2.0f;
 	std::vector<int> remainingAnglesIndex;
 	for (int i = 0; i < 3; i++)  {
 		if (i != largestAngleIndex) {
@@ -129,7 +149,7 @@ void Triangle::calcAngles()
 
 	dividend = sides_.at(remainingAnglesIndex.at(0)) * sin(convertDegreesToRadians(angles_[largestAngleIndex]));
 	divisor = sides_.at(largestAngleIndex);
-	cout << sides_.at(remainingAnglesIndex.at(0)) << endl;
+
 	double ordinaryAsinOfNonLargestAngle = asin(dividend / divisor);
 	angles_[remainingAnglesIndex.at(0)] = convertRadiansToDegress(ordinaryAsinOfNonLargestAngle);
 
