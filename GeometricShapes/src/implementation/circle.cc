@@ -1,32 +1,37 @@
 #include <cmath>
 #include <iostream>
 #include "circle.h"
+#include "points_overflow_exception.h"
+#include "not_enough_points_exception.h"
 
 using namespace std;
 
 Circle::Circle(double radius)
 {
 	Point point = Point(0,0);
-	addPoint(point);
+	AddPoint(point);
 
 	radius_ = radius;
 }
 
-void Circle::addPoint(Point &p)
+void Circle::AddPoint(Point &p)
 {
 	if (points().size() == 0) {
-		Shape::addPoint(p);
+		Shape::AddPoint(p);
+	}
+	else {
+		throw PointsOverflowException();
 	}
 }
 
-double Circle::area()
+double Circle::Area()
 {
 	return M_PI * pow(radius(), 2.0f);
 }
 
-void Circle::print()
+void Circle::Print()
 {
-	cout << "I'm a circle, I have " << numberOfSides() << " sides!" << endl;
-	cout << "I have " << points().size() << " points and a radius of " << radius() << endl;
-	cout << "Lastly, I have an area of " << area() << endl;
+	cout << "I'm a circle, I have " << NumberOfSides() << " sides!" << endl;
+	cout << "I have " << points().size() << " point and a radius of " << radius() << endl;
+	cout << "Lastly, I have an area of " << Area() << endl;
 }

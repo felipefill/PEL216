@@ -11,27 +11,29 @@
 #include <array>
 #include "shape.h"
 
+#define kNumberOfAngles 3
+
 class Triangle : public Shape
 {
 private:
 	std::vector<double> sides_;
-	std::array<double, 3> angles_;
+	std::array<double, kNumberOfAngles> angles_;
 	double height_;
 
-	void calcTriangle();
-	void calcSides();
-	void calcAngles();
-	double convertRadiansToDegress(double radians);
-	double convertDegreesToRadians(double degrees);
+	void CalcTriangle();
+	void CalcSides();
+	void CalcAngles();
+	double ConvertRadiansToDegress(double radians);
+	double ConvertDegreesToRadians(double degrees);
 public:
 	Triangle();
 
-	double height();
+	double Height();
 
 	// Override from parent
-	void print();
-	double area();
-	void addPoint(Point &p);
+	void Print();
+	double Area();
+	void AddPoint(Point &p);
 };
 
 #endif /* TRIANGLE_H_ */

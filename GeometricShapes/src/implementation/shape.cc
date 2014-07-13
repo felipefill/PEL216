@@ -1,5 +1,6 @@
 #include <iostream>
 #include "shape.h"
+#include "not_implemented_yet_exception.h"
 
 using namespace std;
 
@@ -7,34 +8,32 @@ Shape::Shape()
 {
 }
 
-void Shape::addPoint(Point& p)
+void Shape::AddPoint(Point& p)
 {
 	points_.push_back(p);
 }
 
-void Shape::print()
+void Shape::Print()
 {
-	//TODO: should throw an exception
-	cout << "Not implemented yet!" << endl;
+	throw NotImplementedException();
 }
 
-int Shape::numberOfSides()
+int Shape::NumberOfSides()
 {
-    int numberOfPoints = points().size();
-    int numberOfSides;
+    int number_of_points = points().size();
+    int number_of_sides;
 
-    if (numberOfPoints < 2) {
-        numberOfSides = numberOfPoints - 1;
+    if (number_of_points < 2) {
+        number_of_sides = number_of_points - 1;
     }
     else {
-        numberOfSides = numberOfPoints;
+        number_of_sides = number_of_points;
     }
 
-    return numberOfSides;
+    return number_of_sides;
 }
 
-double Shape::area()
+double Shape::Area()
 {
-	//TODO: should throw an exception
-	return 0.0f;
+	throw NotImplementedException();
 }

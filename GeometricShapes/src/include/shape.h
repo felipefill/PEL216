@@ -12,11 +12,11 @@ private:
 public:
     Shape();
 
-    void addPoint(Point &p);
-    void print();
+    void AddPoint(Point &p);
+    void Print();
 
-    int numberOfSides();
-    double area();
+    int NumberOfSides();
+    double Area();
 
     inline std::vector<Point> points() const { return points_; }
 };

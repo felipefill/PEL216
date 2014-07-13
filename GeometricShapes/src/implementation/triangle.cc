@@ -1,6 +1,8 @@
 #include <cmath>
 #include <iostream>
 #include "triangle.h"
+#include "points_overflow_exception.h"
+#include "not_enough_points_exception.h"
 
 using namespace std;
 
@@ -19,33 +21,33 @@ Triangle::Triangle()
 /***
  * Calculates the height of the triangle
  */
-double Triangle::height()
+double Triangle::Height()
 {
 	// area = 0.5*base*height
 	// We will use the first side as base
-	return area() / (0.5 * sides_.at(0));
+	return Area() / (0.5 * sides_.at(0));
 }
 
 /***
  * Adds a new point to the triangle composition
  */
-void Triangle::addPoint(Point &p)
+void Triangle::AddPoint(Point &p)
 {
 	if (points().size() < 3) {
-		Shape::addPoint(p);
+		Shape::AddPoint(p);
 		if (points().size() == 3) {
-			calcTriangle();
+			CalcTriangle();
 		}
 	}
 	else {
-		//TODO: throw exception
+		throw PointsOverflowException();
 	}
 }
 
 /***
  * Calculates the area of the triangle
  */
-double Triangle::area()
+double Triangle::Area()
 {
 	double area = 0.0f;
 
@@ -62,7 +64,7 @@ double Triangle::area()
 		area = sqrt(s * (s - sides_.at(0)) * (s - sides_.at(1)) * (s - sides_.at(2)));
 	}
 	else {
-		//TODO: Throw exception because we dont have 3 sides
+		throw NotEnoughPointsException();
 	}
 
 	return area;
@@ -71,14 +73,14 @@ double Triangle::area()
 /***
  * Prints out information about the triangle, containing its points, measures, angles, height and area.
  */
-void Triangle::print()
+void Triangle::Print()
 {
 	//TODO: only go through if we have 3 sides
 	static const int CAPITAL_A_ASCII_CODE = 'A';
 	static const int MINUSCULE_A_ASCII_CODE = 'a';
 
 	cout << "-----------------------------------------------" << endl;
-	cout << "I'm a triangle, I have " << numberOfSides() << " sides!" << endl;
+	cout << "I'm a triangle, I have " << NumberOfSides() << " sides!" << endl;
 
 	cout << "\nThe points that compose me are: " << endl;
 	for (int i = 0; i < points().size(); i++) {
@@ -97,21 +99,21 @@ void Triangle::print()
 		cout << angleId << " = " << angles_.at(i) << endl;
 	}
 
-	cout << "I have a height of " << height() << endl;
-	cout << "Lastly, I have an area of " << area() << endl;
+	cout << "I have a height of " << Height() << endl;
+	cout << "Lastly, I have an area of " << Area() << endl;
 }
 
 /********************************************************
  ******************* PRIVATE METHODS ********************
  ********************************************************/
 
-void Triangle::calcTriangle()
+void Triangle::CalcTriangle()
 {
-	calcSides();
-	calcAngles();
+	CalcSides();
+	CalcAngles();
 }
 
-void Triangle::calcSides()
+void Triangle::CalcSides()
 {
 	if (sides_.size() == 0) {
 		for (int i = 0; i < 3; i++) {
@@ -121,7 +123,7 @@ void Triangle::calcSides()
 	}
 }
 
-void Triangle::calcAngles()
+void Triangle::CalcAngles()
 {
 	int largestAngleIndex = 0;
 
@@ -145,13 +147,13 @@ void Triangle::calcAngles()
 	}
 
 	double acosLargestAngle = acos(dividend / divisor);
-	angles_[largestAngleIndex] = convertRadiansToDegress(acosLargestAngle);
+	angles_[largestAngleIndex] = ConvertRadiansToDegress(acosLargestAngle);
 
-	dividend = sides_.at(remainingAnglesIndex.at(0)) * sin(convertDegreesToRadians(angles_[largestAngleIndex]));
+	dividend = sides_.at(remainingAnglesIndex.at(0)) * sin(ConvertDegreesToRadians(angles_[largestAngleIndex]));
 	divisor = sides_.at(largestAngleIndex);
 
 	double ordinaryAsinOfNonLargestAngle = asin(dividend / divisor);
-	angles_[remainingAnglesIndex.at(0)] = convertRadiansToDegress(ordinaryAsinOfNonLargestAngle);
+	angles_[remainingAnglesIndex.at(0)] = ConvertRadiansToDegress(ordinaryAsinOfNonLargestAngle);
 
 	angles_[remainingAnglesIndex.at(1)] = 180.0f;
 	for (int i = 0; i < 3; i++) {
@@ -161,12 +163,12 @@ void Triangle::calcAngles()
 	}
 }
 
-double Triangle::convertRadiansToDegress(double radians)
+double Triangle::ConvertRadiansToDegress(double radians)
 {
 	return radians * (180.0f / M_PI);
 }
 
-double Triangle::convertDegreesToRadians(double radians)
+double Triangle::ConvertDegreesToRadians(double radians)
 {
 	return radians * (M_PI / 180.0f);
 }

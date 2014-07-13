@@ -10,7 +10,7 @@ int main()
     cout << "Hello World!\n\n" << endl;
 
     Circle myShape = Circle(100.0f);
-    myShape.print();
+    myShape.Print();
 
     cout << "\n\n";
 
@@ -19,15 +19,15 @@ int main()
     Point p;
 
     p = Point(-2, -2);
-    tri.addPoint(p);
+    tri.AddPoint(p);
 
     p = Point(3, -1);
-    tri.addPoint(p);
+    tri.AddPoint(p);
 
     p = Point(1, 3);
-    tri.addPoint(p);
+    tri.AddPoint(p);
 
-    tri.print();
+    tri.Print();
 
     return 0;
 }
