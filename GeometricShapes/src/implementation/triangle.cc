@@ -21,7 +21,7 @@ Triangle::Triangle()
 /***
  * Calculates the height of the triangle
  */
-double Triangle::Height()
+double Triangle::Height() const
 {
 	// area = 0.5*base*height
 	// We will use the first side as base
@@ -47,7 +47,7 @@ void Triangle::AddPoint(Point &p)
 /***
  * Calculates the area of the triangle
  */
-double Triangle::Area()
+double Triangle::Area() const
 {
 	double area = 0.0f;
 
@@ -73,34 +73,38 @@ double Triangle::Area()
 /***
  * Prints out information about the triangle, containing its points, measures, angles, height and area.
  */
-void Triangle::Print()
+void Triangle::Print() const
 {
-	//TODO: only go through if we have 3 sides
-	static const int CAPITAL_A_ASCII_CODE = 'A';
-	static const int MINUSCULE_A_ASCII_CODE = 'a';
+	if (NumberOfSides() == 3) {
+		static const int CAPITAL_A_ASCII_CODE = 'A';
+		static const int MINUSCULE_A_ASCII_CODE = 'a';
 
-	cout << "-----------------------------------------------" << endl;
-	cout << "I'm a triangle, I have " << NumberOfSides() << " sides!" << endl;
+		cout << "-----------------------------------------------" << endl;
+		cout << "I'm a triangle, I have " << NumberOfSides() << " sides!" << endl;
 
-	cout << "\nThe points that compose me are: " << endl;
-	for (int i = 0; i < points().size(); i++) {
-		cout << "P" << i+1 << " = (" << points().at(i).x() << ", "<< points().at(1).y() << ")" << endl;
+		cout << "\nThe points that compose me are: " << endl;
+		for (int i = 0; i < points().size(); i++) {
+			cout << "P" << i+1 << " = (" << points().at(i).x() << ", "<< points().at(1).y() << ")" << endl;
+		}
+
+		cout << "\nMy side's measures are:" << endl;
+		for (int i = 0; i < sides_.size(); i++) {
+			char measureId = MINUSCULE_A_ASCII_CODE + i;
+			cout << measureId << " = " << sides_.at(i) << endl;
+		}
+
+		cout << "\nMy angles are:" << endl;
+		for (int i = 0; i < angles_.size(); i++) {
+			char angleId = CAPITAL_A_ASCII_CODE + i;
+			cout << angleId << " = " << angles_.at(i) << endl;
+		}
+
+		cout << "I have a height of " << Height() << endl;
+		cout << "Lastly, I have an area of " << Area() << endl;
 	}
-
-	cout << "\nMy side's measures are:" << endl;
-	for (int i = 0; i < sides_.size(); i++) {
-		char measureId = MINUSCULE_A_ASCII_CODE + i;
-		cout << measureId << " = " << sides_.at(i) << endl;
+	else {
+		throw NotEnoughPointsException();
 	}
-
-	cout << "\nMy angles are:" << endl;
-	for (int i = 0; i < angles_.size(); i++) {
-		char angleId = CAPITAL_A_ASCII_CODE + i;
-		cout << angleId << " = " << angles_.at(i) << endl;
-	}
-
-	cout << "I have a height of " << Height() << endl;
-	cout << "Lastly, I have an area of " << Area() << endl;
 }
 
 /********************************************************
@@ -163,12 +167,12 @@ void Triangle::CalcAngles()
 	}
 }
 
-double Triangle::ConvertRadiansToDegress(double radians)
+double Triangle::ConvertRadiansToDegress(double radians) const
 {
 	return radians * (180.0f / M_PI);
 }
 
-double Triangle::ConvertDegreesToRadians(double radians)
+double Triangle::ConvertDegreesToRadians(double radians) const
 {
 	return radians * (M_PI / 180.0f);
 }

@@ -15,8 +15,8 @@ public:
     inline double radius() const { return radius_; }
 
     // Override from parent
-	void Print();
-	double Area();
+	void Print() const;
+	double Area() const;
 	void AddPoint(Point &p);
 };
 

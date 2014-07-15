@@ -13,10 +13,10 @@ public:
     Shape();
 
     void AddPoint(Point &p);
-    void Print();
+    void Print() const;
 
-    int NumberOfSides();
-    double Area();
+    int NumberOfSides() const;
+    double Area() const;
 
     inline std::vector<Point> points() const { return points_; }
 };

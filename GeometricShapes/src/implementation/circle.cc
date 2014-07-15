@@ -24,12 +24,12 @@ void Circle::AddPoint(Point &p)
 	}
 }
 
-double Circle::Area()
+double Circle::Area() const
 {
 	return M_PI * pow(radius(), 2.0f);
 }
 
-void Circle::Print()
+void Circle::Print() const
 {
 	cout << "I'm a circle, I have " << NumberOfSides() << " sides!" << endl;
 	cout << "I have " << points().size() << " point and a radius of " << radius() << endl;

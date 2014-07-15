@@ -23,16 +23,16 @@ private:
 	void CalcTriangle();
 	void CalcSides();
 	void CalcAngles();
-	double ConvertRadiansToDegress(double radians);
-	double ConvertDegreesToRadians(double degrees);
+	double ConvertRadiansToDegress(double radians) const;
+	double ConvertDegreesToRadians(double degrees) const;
 public:
 	Triangle();
 
-	double Height();
+	double Height() const;
 
 	// Override from parent
-	void Print();
-	double Area();
+	void Print() const;
+	double Area() const;
 	void AddPoint(Point &p);
 };
 

@@ -13,12 +13,12 @@ void Shape::AddPoint(Point& p)
 	points_.push_back(p);
 }
 
-void Shape::Print()
+void Shape::Print() const
 {
 	throw NotImplementedException();
 }
 
-int Shape::NumberOfSides()
+int Shape::NumberOfSides() const
 {
     int number_of_points = points().size();
     int number_of_sides;
@@ -33,7 +33,7 @@ int Shape::NumberOfSides()
     return number_of_sides;
 }
 
-double Shape::Area()
+double Shape::Area() const
 {
 	throw NotImplementedException();
 }
