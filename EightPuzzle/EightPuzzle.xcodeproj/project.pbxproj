@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E071DFD197C7F9300BDCC51 /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3E071DFC197C7F9300BDCC51 /* main.cc */; };
+		3E071E01197DB4E800BDCC51 /* puzzle_state.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3E071E00197DB4E800BDCC51 /* puzzle_state.cc */; };
 		3EF4E19D197C7EC300976B62 /* EightPuzzle.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EF4E19C197C7EC300976B62 /* EightPuzzle.1 */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,11 @@
 		3E071DF9197C7F9300BDCC51 /* square_matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = square_matrix.h; sourceTree = "<group>"; };
 		3E071DFA197C7F9300BDCC51 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
 		3E071DFC197C7F9300BDCC51 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
+		3E071DFE197DB12900BDCC51 /* puzzle_operations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = puzzle_operations.h; sourceTree = "<group>"; };
+		3E071DFF197DB31E00BDCC51 /* invalid_opeartion_exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = invalid_opeartion_exception.h; sourceTree = "<group>"; };
+		3E071E00197DB4E800BDCC51 /* puzzle_state.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = puzzle_state.cc; sourceTree = "<group>"; };
+		3E071E02197DBB1000BDCC51 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		3E071E03197DBCBC00BDCC51 /* element_position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = element_position.h; sourceTree = "<group>"; };
 		3EF4E197197C7EC300976B62 /* EightPuzzle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EightPuzzle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF4E19C197C7EC300976B62 /* EightPuzzle.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EightPuzzle.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,6 +58,10 @@
 				3E071DF8197C7F9300BDCC51 /* puzzle_state.h */,
 				3E071DF9197C7F9300BDCC51 /* square_matrix.h */,
 				3E071DFA197C7F9300BDCC51 /* vector.h */,
+				3E071DFE197DB12900BDCC51 /* puzzle_operations.h */,
+				3E071DFF197DB31E00BDCC51 /* invalid_opeartion_exception.h */,
+				3E071E02197DBB1000BDCC51 /* constants.h */,
+				3E071E03197DBCBC00BDCC51 /* element_position.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -60,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				3E071DFC197C7F9300BDCC51 /* main.cc */,
+				3E071E00197DB4E800BDCC51 /* puzzle_state.cc */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -142,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E071DFD197C7F9300BDCC51 /* main.cc in Sources */,
+				3E071E01197DB4E800BDCC51 /* puzzle_state.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

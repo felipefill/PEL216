@@ -24,17 +24,18 @@ namespace eightPuzzle
 	  private:
 		Vector<T> * elements_;
 		int capacity_;
+        int square_capacity_;
 
 	  public:
 		SquareMatrix(int capacity)
 		{
 			capacity_ = capacity;
 
-			int square = sqrt(capacity);
-			elements_ = new Vector<T>[square];
+            square_capacity_ = sqrt(capacity);
+			elements_ = new Vector<T>[square_capacity()];
 
-			for (int i = 0; i < square; i++) {
-				elements_[i] = Vector<T>(square);
+			for (int i = 0; i < square_capacity(); i++) {
+				elements_[i] = Vector<T>(square_capacity());
 			}
 		}
 
@@ -53,6 +54,16 @@ namespace eightPuzzle
 		{
 			return elements_[index];
 		}
+        
+        int capacity()
+        {
+            return capacity_;
+        }
+        
+        int square_capacity()
+        {
+            return square_capacity_;
+        }
 
 	};
 }

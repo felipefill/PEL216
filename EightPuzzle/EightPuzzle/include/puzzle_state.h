@@ -8,9 +8,10 @@
 #ifndef PUZZLESTATE_H_
 #define PUZZLESTATE_H_
 
+#include "constants.h"
 #include "square_matrix.h"
-
-#define kPuzzleSize 9 // If you ever change this, it must be a perfect square, keep that in mind.
+#include "puzzle_operations.h"
+#include "element_position.h"
 
 namespace eightPuzzle
 {
@@ -21,9 +22,23 @@ namespace eightPuzzle
     class PuzzleState
     {
       private:
-        SquareMatrix<int> state;
+        SquareMatrix<int> state_;
+        ElementPosition blank_space_position_;
+        
+        ElementPosition & FindBlankSpace();
         
       public:
+        PuzzleState();
+        ~PuzzleState();
+        
+        bool operator == (PuzzleState & p);
+        PuzzleState & operator + (PuzzleOperations operation);
+        Vector<int> operator [] (int index) const;
+        Vector<int> & operator [] (int index);
+        
+        int capacity();
+        int square_capacity();
+        ElementPosition & blank_space_position();
         
     };
 }

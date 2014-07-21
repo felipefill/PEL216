@@ -9,20 +9,33 @@
 #include <cstdlib>
 
 #include "square_matrix.h"
+#include "puzzle_state.h"
 
 using namespace eightPuzzle;
 
 int main()
 {
-	SquareMatrix<int> matrix = SquareMatrix<int>(4);
+    PuzzleState state = PuzzleState();
 
-	matrix[0][0] = 1;
-	matrix[0][1] = 2;
-	matrix[1][0] = 3;
-	matrix[1][1] = 4;
+	state[0][0] = 1;
+	state[0][1] = 2;
+	state[1][0] = 3;
+	state[1][1] = kBlankSpace;
+    
+    PuzzleState state2 = PuzzleState();
+    
+    state2[0][0] = 1;
+    state2[0][1] = 2;
+    state2[1][0] = 3;
+    state2[1][1] = kBlankSpace;
+    
+    if (state == state2)
+        std::cout << "true" << std::endl;
+    
+    std::cout << state.blank_space_position().line << " " << state.blank_space_position().row << std::endl;
 
-    std::cout << matrix[0][0] << "  "  << matrix[0][1] << std::endl;
-    std::cout << matrix[1][0] << "  "  << matrix[1][1] << std::endl;
+    std::cout << state[0][0] << "  "  << state[0][1] << std::endl;
+    std::cout << state[1][0] << "  "  << state[1][1] << std::endl;
 
 	return 0;
 }
