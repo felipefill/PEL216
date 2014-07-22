@@ -7,6 +7,8 @@
 //
 
 #include "puzzle_state.h"
+#include "../include/no_blank_space_exception.h"
+#include "../include/invalid_opeartion_exception.h"
 
 namespace eightPuzzle {
     
@@ -39,8 +41,65 @@ namespace eightPuzzle {
     
     PuzzleState & PuzzleState::operator + (PuzzleOperations operation)
     {
-        //TODO: implement
-        return *this;
+        int line = blank_space_position().line;
+        int row = blank_space_position().row;
+        
+        PuzzleState * result = &copy();
+        
+        switch (operation) {
+            case kMoveBlankSpaceUp:
+                if (line > 0 && line <= square_capacity()) {
+                    SwitchValues(&(*result)[line - 1][row], &(*result)[line][row]);
+                    result->blank_space_position_.line -= 1;
+                }
+                else {
+                    /*
+                        The first condition tests that we will not be going out of bounds;
+                        The second one tests if we ARE out of bounds.
+                     */
+                    throw InvalidOpeartionException();
+                }
+                break;
+                
+            case kMoveBlankSpaceDown:
+                if (line >= 0 && line < square_capacity()) {
+                    SwitchValues(&(*result)[line + 1][row], &(*result)[line][row]);
+                    result->blank_space_position_.line += 1;
+                }
+                else {
+                    /*
+                        The first condition tests if we ARE out of bounds;
+                        The second one tests if we will be going out of bounds.
+                     */
+                    throw InvalidOpeartionException();
+                }
+                break;
+                
+            case kMoveBlankSpaceToTheLeft:
+                if (row > 0 && row <= square_capacity()) {
+                    SwitchValues(&(*result)[line][row - 1], &(*result)[line][row]);
+                    result->blank_space_position_.row -= 1;
+                }
+                else {
+                    throw InvalidOpeartionException();
+                }
+                break;
+                
+            case kMoveBlankSpaceToTheRight:
+                if (row >= 0 && row < square_capacity()) {
+                    SwitchValues(&(*result)[line][row + 1], &(*result)[line][row]);
+                    result->blank_space_position_.row += 1;
+                }
+                else {
+                    throw InvalidOpeartionException();
+                }
+                break;
+                
+            default:
+                break;
+        }
+        
+        return *result;
     }
     
     Vector<int> PuzzleState::operator [] (int index) const
@@ -68,10 +127,20 @@ namespace eightPuzzle {
         if (blank_space_position_.line == -1 && blank_space_position_.row == -1)
         {
             blank_space_position_ = FindBlankSpace();
-            //TODO: catch exception
         }
         
         return blank_space_position_;
+    }
+    
+    void PuzzleState::Print()
+    {
+        for (int i = 0; i < square_capacity(); i++) {
+            for (int j = 0; j < square_capacity(); j++) {
+                std::cout << (*this)[i][j] << "  ";
+            }
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
     }
     
     ElementPosition & PuzzleState::FindBlankSpace()
@@ -91,10 +160,24 @@ namespace eightPuzzle {
         
         if (!found) {
             delete position;
-            //TODO: throw exception
+            throw NoBlankSpaceException();
         }
         
         return *position;
+    }
+    
+    PuzzleState & PuzzleState::copy()
+    {
+        PuzzleState * copy = new PuzzleState(*this);
+        
+        return *copy;
+    }
+    
+    void PuzzleState::SwitchValues (int * a, int * b)
+    {
+        int aux = *a;
+        *a = *b;
+        *b = aux;
     }
     
 }

@@ -27,6 +27,9 @@ namespace eightPuzzle
         
         ElementPosition & FindBlankSpace();
         
+        PuzzleState & copy();
+        void SwitchValues (int *a, int *b);
+        
       public:
         PuzzleState();
         ~PuzzleState();
@@ -39,6 +42,8 @@ namespace eightPuzzle
         int capacity();
         int square_capacity();
         ElementPosition & blank_space_position();
+        
+        void Print();
         
     };
 }

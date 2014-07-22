@@ -10,7 +10,7 @@
 #define CONSTANTS_H_
 
 /* If you ever change this, it must be a perfect square, keep that in mind. */
-#define kPuzzleSize 4
+#define kPuzzleSize 9
 
 /* Use a int that's NOT in the closed interval [1, (kPuzzleSize-1)]. */
 #define kBlankSpace 0

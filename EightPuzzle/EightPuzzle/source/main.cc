@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <exception>
 
 #include "square_matrix.h"
 #include "puzzle_state.h"
@@ -19,23 +20,28 @@ int main()
 
 	state[0][0] = 1;
 	state[0][1] = 2;
+    state[0][2] = 8;
 	state[1][0] = 3;
 	state[1][1] = kBlankSpace;
+    state[1][2] = 6;
+    state[2][0] = 4;
+    state[2][1] = 5;
+    state[2][2] = 7;
     
-    PuzzleState state2 = PuzzleState();
-    
-    state2[0][0] = 1;
-    state2[0][1] = 2;
-    state2[1][0] = 3;
-    state2[1][1] = kBlankSpace;
-    
-    if (state == state2)
-        std::cout << "true" << std::endl;
-    
-    std::cout << state.blank_space_position().line << " " << state.blank_space_position().row << std::endl;
 
-    std::cout << state[0][0] << "  "  << state[0][1] << std::endl;
-    std::cout << state[1][0] << "  "  << state[1][1] << std::endl;
+    state.Print();
+    
+    state = state + kMoveBlankSpaceToTheLeft;
+    state.Print();
+    
+    state = state + kMoveBlankSpaceUp;
+    state.Print();
+    
+    state = state + kMoveBlankSpaceToTheRight;
+    state.Print();
+    
+    state = state + kMoveBlankSpaceDown;
+    state.Print();
 
 	return 0;
 }
