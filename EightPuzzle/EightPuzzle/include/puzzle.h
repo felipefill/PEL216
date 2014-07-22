@@ -1,9 +1,10 @@
-/*
- * Puzzle.h
- *
- *  Created on: Jul 20, 2014
- *      Author: felipefill
- */
+//
+//  puzzle.h
+//  EightPuzzle
+//
+//  Created by Felipe Fill Cardoso on 7/21/14.
+//  Copyright (c) 2014 Felipe Fill. All rights reserved.
+//
 
 #ifndef PUZZLE_H_
 #define PUZZLE_H_

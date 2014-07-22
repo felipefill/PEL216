@@ -1,9 +1,10 @@
-/*
- * matrix.h
- *
- *  Created on: Jul 20, 2014
- *      Author: felipefill
- */
+//
+//  square_matrix.h
+//  EightPuzzle
+//
+//  Created by Felipe Fill Cardoso on 7/21/14.
+//  Copyright (c) 2014 Felipe Fill. All rights reserved.
+//
 
 #ifndef MATRIX_H_
 #define MATRIX_H_

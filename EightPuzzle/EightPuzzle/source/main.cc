@@ -1,9 +1,10 @@
-/*
- * main.cc
- *
- *  Created on: Jul 20, 2014
- *      Author: felipefill
- */
+//
+//  main.cc
+//  EightPuzzle
+//
+//  Created by Felipe Fill Cardoso on 7/21/14.
+//  Copyright (c) 2014 Felipe Fill. All rights reserved.
+//
 
 #include <iostream>
 #include <cstdlib>

@@ -1,9 +1,10 @@
-/*
- * vector.h
- *
- *  Created on: Jul 20, 2014
- *      Author: felipefill
- */
+//
+//  vector.h
+//  EightPuzzle
+//
+//  Created by Felipe Fill Cardoso on 7/21/14.
+//  Copyright (c) 2014 Felipe Fill. All rights reserved.
+//
 
 #ifndef VECTOR_H_
 #define VECTOR_H_

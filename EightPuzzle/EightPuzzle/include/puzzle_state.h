@@ -1,9 +1,10 @@
-/*
- * PuzzleState.h
- *
- *  Created on: Jul 20, 2014
- *      Author: felipefill
- */
+//
+//  puzzle_state.h
+//  EightPuzzle
+//
+//  Created by Felipe Fill Cardoso on 7/21/14.
+//  Copyright (c) 2014 Felipe Fill. All rights reserved.
+//
 
 #ifndef PUZZLESTATE_H_
 #define PUZZLESTATE_H_
