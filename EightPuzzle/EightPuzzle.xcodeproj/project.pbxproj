@@ -39,6 +39,8 @@
 		3E071E03197DBCBC00BDCC51 /* element_position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = element_position.h; sourceTree = "<group>"; };
 		3E071E04197DC07A00BDCC51 /* no_blank_space_exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = no_blank_space_exception.h; sourceTree = "<group>"; };
 		3E2B92E71988572600093B8F /* puzzle.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = puzzle.cc; sourceTree = "<group>"; };
+		3E2B92E9198865E900093B8F /* breadth_first_search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = breadth_first_search.h; sourceTree = "<group>"; };
+		3E2B92EA1988677D00093B8F /* search_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = search_interface.h; sourceTree = "<group>"; };
 		3EF4E197197C7EC300976B62 /* EightPuzzle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EightPuzzle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF4E19C197C7EC300976B62 /* EightPuzzle.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EightPuzzle.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,8 @@
 				3E071E02197DBB1000BDCC51 /* constants.h */,
 				3E071E03197DBCBC00BDCC51 /* element_position.h */,
 				3E071E04197DC07A00BDCC51 /* no_blank_space_exception.h */,
+				3E2B92E9198865E900093B8F /* breadth_first_search.h */,
+				3E2B92EA1988677D00093B8F /* search_interface.h */,
 			);
 			path = include;
 			sourceTree = "<group>";

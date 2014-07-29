@@ -15,11 +15,15 @@
 #include "square_matrix.h"
 #include "puzzle_state.h"
 #include "puzzle.h"
+#include "search_interface.h"
+#include "breadth_first_search.h"
 
 using namespace eightPuzzle;
 
 int main()
 {
+    BreadthFirstSearch search = BreadthFirstSearch();
+    
     for (int i = 0; i < 100000; i++) {
         PuzzleState * state = Puzzle::GenerateRandomState();
         
