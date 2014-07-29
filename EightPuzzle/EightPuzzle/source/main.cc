@@ -9,40 +9,37 @@
 #include <iostream>
 #include <cstdlib>
 #include <exception>
+#include <thread>         // std::this_thread::sleep_for
+#include <chrono>         // std::chrono::seconds
 
 #include "square_matrix.h"
 #include "puzzle_state.h"
+#include "puzzle.h"
 
 using namespace eightPuzzle;
 
 int main()
 {
-    PuzzleState state = PuzzleState();
-
-	state[0][0] = 1;
-	state[0][1] = 2;
-    state[0][2] = 8;
-	state[1][0] = 3;
-	state[1][1] = kBlankSpace;
-    state[1][2] = 6;
-    state[2][0] = 4;
-    state[2][1] = 5;
-    state[2][2] = 7;
+    for (int i = 0; i < 100000; i++) {
+        PuzzleState * state = Puzzle::GenerateRandomState();
+        
+        state->Print();
+        delete state;
+        
+        std::this_thread::sleep_for (std::chrono::milliseconds(200));
+    }
     
-
-    state.Print();
-    
-    state = state + kMoveBlankSpaceToTheLeft;
-    state.Print();
-    
-    state = state + kMoveBlankSpaceUp;
-    state.Print();
-    
-    state = state + kMoveBlankSpaceToTheRight;
-    state.Print();
-    
-    state = state + kMoveBlankSpaceDown;
-    state.Print();
+//    state = state + kMoveBlankSpaceToTheLeft;
+//    state.Print();
+//    
+//    state = state + kMoveBlankSpaceUp;
+//    state.Print();
+//    
+//    state = state + kMoveBlankSpaceToTheRight;
+//    state.Print();
+//    
+//    state = state + kMoveBlankSpaceDown;
+//    state.Print();
 
 	return 0;
 }

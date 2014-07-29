@@ -18,7 +18,6 @@ namespace eightPuzzle {
     
     PuzzleState::~PuzzleState()
     {
-        
     }
     
     bool PuzzleState::operator == (PuzzleState & p)

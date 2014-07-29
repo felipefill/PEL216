@@ -9,6 +9,8 @@
 #ifndef VECTOR_H_
 #define VECTOR_H_
 
+#include <vector>
+
 namespace eightPuzzle {
 
 	/*
@@ -20,20 +22,19 @@ namespace eightPuzzle {
 	class Vector
 	{
 	  private:
-		T *elements_;
+        std::vector<T> elements_;
 		int capacity_;
 
 	  public:
         Vector()
         {
-            elements_ = nullptr;
             capacity_ = 0;
         }
         
 		Vector(int capacity)
 		{
 			capacity_ = capacity;
-			elements_ = new T[capacity_];
+            elements_.reserve(capacity);
 		}
 
 		T operator[] (int index) const

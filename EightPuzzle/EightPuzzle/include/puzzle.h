@@ -11,12 +11,14 @@
 
 namespace eightPuzzle
 {
+    class PuzzleState;
+    
     class Puzzle
     {
       private:
         
       public:
-        
+        static PuzzleState * GenerateRandomState();
     };
 }
 
