@@ -11,11 +11,11 @@
 
 namespace eightPuzzle {
     
-    std::vector<PuzzleState> BreadthFirstSearch::DoSearch(PuzzleState & initial_state, PuzzleState & goal_state)
+    std::vector<PuzzleState> BreadthFirstSearch::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)
     {
         Queue<PuzzleState> states_to_expand;
         std::vector<PuzzleState> expanded_states;
-        PuzzleState current_state = initial_state;
+        PuzzleState current_state = *initial_state;
         
         return current_state.BuildPathToRoot();
     }
