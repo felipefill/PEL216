@@ -28,7 +28,7 @@ namespace eightPuzzle {
         private:
           
         public:
-          std::vector<PuzzleState> DoSearch(PuzzleState * initial_state, PuzzleState * goal_state);
+          std::vector<PuzzleState*> DoSearch(PuzzleState * initial_state, PuzzleState * goal_state);
       };
 
 }

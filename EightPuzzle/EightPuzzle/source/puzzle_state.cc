@@ -143,10 +143,10 @@ namespace eightPuzzle {
         std::cout << std::endl;
     }
     
-    std::vector<PuzzleState> PuzzleState::BuildPathToRoot()
+    std::vector<PuzzleState*> PuzzleState::BuildPathToRoot()
     {
-        std::vector<PuzzleState> solution;
-        solution.insert(solution.begin(), *this);
+        std::vector<PuzzleState*> solution;
+        solution.insert(solution.begin(), this);
         
         //TODO: look for other states
         

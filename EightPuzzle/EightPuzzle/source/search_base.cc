@@ -11,7 +11,7 @@
 
 namespace eightPuzzle {
     
-    std::vector<PuzzleState> SearchBase::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)
+    std::vector<PuzzleState*> SearchBase::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)
     {
         throw NotImplementedException();
     }

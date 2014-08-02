@@ -21,15 +21,28 @@ using namespace eightPuzzle;
 
 int main()
 {
+    BreadthFirstSearch * search = new BreadthFirstSearch();
+
+    PuzzleState * initial_state = Puzzle::GenerateRandomState();
+    PuzzleState * goal_state = Puzzle::GenerateRandomState();
+
+    std::vector<PuzzleState*> result = search->DoSearch(initial_state, goal_state);
+
+    std::cout << result.size() << std::endl;
+    result.at(0)->Print();
+
+    delete initial_state;
+    delete goal_state;
+    delete search;
     
-     for (int i = 0; i < 100000; i++) {
-         PuzzleState * state = Puzzle::GenerateRandomState();
- 
-         state->Print();
-         delete state;
- 
-         std::this_thread::sleep_for (std::chrono::milliseconds(200));
-     }
+    for (int i = 0; i < 100000; i++) {
+        PuzzleState * state = Puzzle::GenerateRandomState();
+
+        state->Print();
+        delete state;
+
+        std::this_thread::sleep_for (std::chrono::milliseconds(200));
+    }
     
 	return 0;
 }
