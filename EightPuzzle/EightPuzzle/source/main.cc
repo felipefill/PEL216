@@ -21,31 +21,15 @@ using namespace eightPuzzle;
 
 int main()
 {
-//    BreadthFirstSearch search = BreadthFirstSearch();
-    BreadthFirstSearch search = BreadthFirstSearch();
-    search.DoSearch(*Puzzle::GenerateRandomState(), *Puzzle::GenerateRandomState());
+     for (int i = 0; i < 100000; i++) {
+         PuzzleState * state = Puzzle::GenerateRandomState();
+ 
+         state->Print();
+         delete state;
+ 
+         std::this_thread::sleep_for (std::chrono::milliseconds(200));
+     }
     
-    for (int i = 0; i < 100000; i++) {
-        PuzzleState * state = Puzzle::GenerateRandomState();
-        
-        state->Print();
-        delete state;
-        
-        std::this_thread::sleep_for (std::chrono::milliseconds(200));
-    }
-    
-//    state = state + kMoveBlankSpaceToTheLeft;
-//    state.Print();
-//    
-//    state = state + kMoveBlankSpaceUp;
-//    state.Print();
-//    
-//    state = state + kMoveBlankSpaceToTheRight;
-//    state.Print();
-//    
-//    state = state + kMoveBlankSpaceDown;
-//    state.Print();
-
 	return 0;
 }
 
@@ -63,3 +47,25 @@ int main()
  *
  *
  */
+
+
+//    for (int i = 0; i < 100000; i++) {
+//        PuzzleState * state = Puzzle::GenerateRandomState();
+//
+//        state->Print();
+//        delete state;
+//
+//        std::this_thread::sleep_for (std::chrono::milliseconds(200));
+//    }
+
+//    state = state + kMoveBlankSpaceToTheLeft;
+//    state.Print();
+//
+//    state = state + kMoveBlankSpaceUp;
+//    state.Print();
+//
+//    state = state + kMoveBlankSpaceToTheRight;
+//    state.Print();
+//
+//    state = state + kMoveBlankSpaceDown;
+//    state.Print();

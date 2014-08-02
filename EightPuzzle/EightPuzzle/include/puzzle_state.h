@@ -23,6 +23,7 @@ namespace eightPuzzle
     class PuzzleState
     {
       private:
+        PuzzleState * parent_state_;
         SquareMatrix<int> state_;
         ElementPosition blank_space_position_;
         
@@ -45,6 +46,10 @@ namespace eightPuzzle
         ElementPosition & blank_space_position();
         
         void Print();
+        std::vector<PuzzleState> BuildPathToRoot();
+        
+        inline PuzzleState * parent_state() const { return parent_state_; }
+        inline void set_parent_state(PuzzleState * parent_state) { parent_state_ = parent_state; }
         
     };
 }

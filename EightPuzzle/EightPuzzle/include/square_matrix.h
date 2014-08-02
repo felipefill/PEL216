@@ -23,7 +23,7 @@ namespace eightPuzzle
 	class SquareMatrix
 	{
 	  private:
-		Vector<T> * elements_;
+        Vector<T> * elements_;
 		int capacity_;
         int square_capacity_;
 
@@ -42,8 +42,10 @@ namespace eightPuzzle
 
 		~SquareMatrix()
 		{
-            if (elements_)
-                delete [] elements_;
+            if (elements_ != nullptr) {
+                delete[] elements_;
+                elements_ = nullptr;
+            }
 		}
 
 		Vector<T> operator[] (int index) const

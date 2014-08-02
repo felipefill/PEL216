@@ -14,6 +14,7 @@ namespace eightPuzzle {
     
     PuzzleState::PuzzleState() : state_(SquareMatrix<int>(kPuzzleSize)), blank_space_position_(-1, -1)
     {
+        set_parent_state(nullptr);
     }
     
     PuzzleState::~PuzzleState()
@@ -140,6 +141,16 @@ namespace eightPuzzle {
             std::cout << std::endl;
         }
         std::cout << std::endl;
+    }
+    
+    std::vector<PuzzleState> PuzzleState::BuildPathToRoot()
+    {
+        std::vector<PuzzleState> solution;
+        solution.insert(solution.begin(), *this);
+        
+        //TODO: look for other states
+        
+        return solution;
     }
     
     ElementPosition & PuzzleState::FindBlankSpace()
