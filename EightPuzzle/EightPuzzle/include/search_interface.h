@@ -9,8 +9,9 @@
 #ifndef SEARCH_INTERFACE_H_
 #define SEARCH_INTERFACE_H_
 
+#include "puzzle_state.h"
+
 namespace eightPuzzle {
-  class PuzzleState;
     
   class SearchInterface
   {

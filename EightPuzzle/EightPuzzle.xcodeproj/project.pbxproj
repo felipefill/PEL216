@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		3E071DFD197C7F9300BDCC51 /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3E071DFC197C7F9300BDCC51 /* main.cc */; };
 		3E071E01197DB4E800BDCC51 /* puzzle_state.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3E071E00197DB4E800BDCC51 /* puzzle_state.cc */; };
+		3E257079198D33FC00D183A5 /* search_base.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3E257078198D33FC00D183A5 /* search_base.cc */; };
 		3E2B92E81988572600093B8F /* puzzle.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B92E71988572600093B8F /* puzzle.cc */; };
+		3E80DBB8198D3851004B809D /* breadth_first_search.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3E80DBB7198D3851004B809D /* breadth_first_search.cc */; };
 		3EF4E19D197C7EC300976B62 /* EightPuzzle.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EF4E19C197C7EC300976B62 /* EightPuzzle.1 */; };
 /* End PBXBuildFile section */
 
@@ -38,9 +40,13 @@
 		3E071E02197DBB1000BDCC51 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		3E071E03197DBCBC00BDCC51 /* element_position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = element_position.h; sourceTree = "<group>"; };
 		3E071E04197DC07A00BDCC51 /* no_blank_space_exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = no_blank_space_exception.h; sourceTree = "<group>"; };
+		3E257072198D328800D183A5 /* search_base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = search_base.h; sourceTree = "<group>"; };
+		3E257078198D33FC00D183A5 /* search_base.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = search_base.cc; sourceTree = "<group>"; };
 		3E2B92E71988572600093B8F /* puzzle.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = puzzle.cc; sourceTree = "<group>"; };
 		3E2B92E9198865E900093B8F /* breadth_first_search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = breadth_first_search.h; sourceTree = "<group>"; };
 		3E2B92EA1988677D00093B8F /* search_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = search_interface.h; sourceTree = "<group>"; };
+		3E80DBB6198D36F2004B809D /* not_implemented_exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = not_implemented_exception.h; sourceTree = "<group>"; };
+		3E80DBB7198D3851004B809D /* breadth_first_search.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = breadth_first_search.cc; sourceTree = "<group>"; };
 		3EF4E197197C7EC300976B62 /* EightPuzzle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EightPuzzle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF4E19C197C7EC300976B62 /* EightPuzzle.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EightPuzzle.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,17 +65,11 @@
 		3E071DF6197C7F9300BDCC51 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				3E071DF7197C7F9300BDCC51 /* puzzle.h */,
-				3E071DF8197C7F9300BDCC51 /* puzzle_state.h */,
-				3E071DF9197C7F9300BDCC51 /* square_matrix.h */,
-				3E071DFA197C7F9300BDCC51 /* vector.h */,
-				3E071DFE197DB12900BDCC51 /* puzzle_operations.h */,
-				3E071DFF197DB31E00BDCC51 /* invalid_opeartion_exception.h */,
+				3E257070198D324B00D183A5 /* exception */,
+				3E25706E198D322E00D183A5 /* matrix */,
+				3E25706F198D323F00D183A5 /* puzzle */,
+				3E257071198D325C00D183A5 /* search */,
 				3E071E02197DBB1000BDCC51 /* constants.h */,
-				3E071E03197DBCBC00BDCC51 /* element_position.h */,
-				3E071E04197DC07A00BDCC51 /* no_blank_space_exception.h */,
-				3E2B92E9198865E900093B8F /* breadth_first_search.h */,
-				3E2B92EA1988677D00093B8F /* search_interface.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -77,11 +77,69 @@
 		3E071DFB197C7F9300BDCC51 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				3E257073198D337500D183A5 /* puzzle */,
+				3E257074198D338500D183A5 /* search */,
 				3E071DFC197C7F9300BDCC51 /* main.cc */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		3E25706E198D322E00D183A5 /* matrix */ = {
+			isa = PBXGroup;
+			children = (
+				3E071DF9197C7F9300BDCC51 /* square_matrix.h */,
+				3E071DFA197C7F9300BDCC51 /* vector.h */,
+				3E071E03197DBCBC00BDCC51 /* element_position.h */,
+			);
+			name = matrix;
+			sourceTree = "<group>";
+		};
+		3E25706F198D323F00D183A5 /* puzzle */ = {
+			isa = PBXGroup;
+			children = (
+				3E071DF7197C7F9300BDCC51 /* puzzle.h */,
+				3E071DF8197C7F9300BDCC51 /* puzzle_state.h */,
+				3E071DFE197DB12900BDCC51 /* puzzle_operations.h */,
+			);
+			name = puzzle;
+			sourceTree = "<group>";
+		};
+		3E257070198D324B00D183A5 /* exception */ = {
+			isa = PBXGroup;
+			children = (
+				3E071DFF197DB31E00BDCC51 /* invalid_opeartion_exception.h */,
+				3E071E04197DC07A00BDCC51 /* no_blank_space_exception.h */,
+				3E80DBB6198D36F2004B809D /* not_implemented_exception.h */,
+			);
+			name = exception;
+			sourceTree = "<group>";
+		};
+		3E257071198D325C00D183A5 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				3E2B92E9198865E900093B8F /* breadth_first_search.h */,
+				3E2B92EA1988677D00093B8F /* search_interface.h */,
+				3E257072198D328800D183A5 /* search_base.h */,
+			);
+			name = search;
+			sourceTree = "<group>";
+		};
+		3E257073198D337500D183A5 /* puzzle */ = {
+			isa = PBXGroup;
+			children = (
 				3E071E00197DB4E800BDCC51 /* puzzle_state.cc */,
 				3E2B92E71988572600093B8F /* puzzle.cc */,
 			);
-			path = source;
+			name = puzzle;
+			sourceTree = "<group>";
+		};
+		3E257074198D338500D183A5 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				3E257078198D33FC00D183A5 /* search_base.cc */,
+				3E80DBB7198D3851004B809D /* breadth_first_search.cc */,
+			);
+			name = search;
 			sourceTree = "<group>";
 		};
 		3EF4E18E197C7EC300976B62 = {
@@ -162,7 +220,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E071DFD197C7F9300BDCC51 /* main.cc in Sources */,
+				3E80DBB8198D3851004B809D /* breadth_first_search.cc in Sources */,
 				3E2B92E81988572600093B8F /* puzzle.cc in Sources */,
+				3E257079198D33FC00D183A5 /* search_base.cc in Sources */,
 				3E071E01197DB4E800BDCC51 /* puzzle_state.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

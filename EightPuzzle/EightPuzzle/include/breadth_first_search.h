@@ -19,11 +19,11 @@
 #ifndef BREADTH_FIRST_SEARCH_H_
 #define BREADTH_FIRST_SEARCH_H_
 
-#include "search_interface.h"
+#include "search_base.h"
 
 namespace eightPuzzle {
   
-      class BreadthFirstSearch : public SearchInterface
+      class BreadthFirstSearch : public SearchBase
       {
         private:
           
