@@ -148,9 +148,40 @@ namespace eightPuzzle {
         std::vector<PuzzleState*> solution;
         solution.insert(solution.begin(), this);
         
-        //TODO: look for other states
+        PuzzleState * next_state = parent_state();
+        while (next_state != nullptr) {
+            solution.insert(solution.begin(), next_state);
+            next_state = next_state->parent_state();
+        }
         
         return solution;
+    }
+    
+    std::vector<PuzzleState *> PuzzleState::Children()
+    {
+        std::vector<PuzzleState *> children;
+        
+        try {
+            children.push_back(this + kMoveBlankSpaceToTheLeft);
+        }
+        catch (InvalidOpeartionException e) { }
+        
+        try {
+            children.push_back(this + kMoveBlankSpaceToTheRight);
+        }
+        catch (InvalidOpeartionException e) { }
+        
+        try {
+            children.push_back(this + kMoveBlankSpaceDown);
+        }
+        catch (InvalidOpeartionException e) { }
+        
+        try {
+            children.push_back(this + kMoveBlankSpaceUp);
+        }
+        catch (InvalidOpeartionException e) { }
+        
+        return children;
     }
     
     ElementPosition & PuzzleState::FindBlankSpace()

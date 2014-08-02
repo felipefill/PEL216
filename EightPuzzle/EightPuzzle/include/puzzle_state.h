@@ -46,7 +46,8 @@ namespace eightPuzzle
         ElementPosition & blank_space_position();
         
         void Print();
-        std::vector<PuzzleState*> BuildPathToRoot();
+        std::vector<PuzzleState *> BuildPathToRoot();
+        std::vector<PuzzleState *> Children();
         
         inline PuzzleState * parent_state() const { return parent_state_; }
         inline void set_parent_state(PuzzleState * parent_state) { parent_state_ = parent_state; }

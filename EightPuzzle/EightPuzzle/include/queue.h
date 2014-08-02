@@ -71,7 +71,7 @@ public:
             QueueElement * first = first_;
             value = first->value();
 
-            if (first == this->last) {
+            if (first == last_) {
                 first_ = nullptr;
                 last_ = nullptr;
             }
