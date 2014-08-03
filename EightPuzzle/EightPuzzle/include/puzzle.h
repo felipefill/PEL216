@@ -19,6 +19,8 @@ namespace eightPuzzle
         
       public:
         static PuzzleState * GenerateRandomState();
+        static PuzzleState * GenerateEasyInitialState();
+        static PuzzleState * GenerateGoalState();
     };
 }
 

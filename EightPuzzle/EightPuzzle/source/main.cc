@@ -23,8 +23,8 @@ int main()
 {
     BreadthFirstSearch * search = new BreadthFirstSearch();
 
-    PuzzleState * initial_state = Puzzle::GenerateRandomState();
-    PuzzleState * goal_state = Puzzle::GenerateRandomState();
+    PuzzleState * initial_state = Puzzle::GenerateEasyInitialState();
+    PuzzleState * goal_state = Puzzle::GenerateGoalState();
 
     std::vector<PuzzleState*> result = search->DoSearch(initial_state, goal_state);
 
