@@ -46,6 +46,10 @@ namespace eightPuzzle {
         
         PuzzleState * result = Copy();
         
+        if (line < 0 || line > square_capacity() - 1 || row < 0 || row > square_capacity() - 1) {
+            throw InvalidOpeartionException();
+        }
+        
         switch (operation) {
             case kMoveBlankSpaceUp:
                 if (line > 0) {
@@ -114,14 +118,14 @@ namespace eightPuzzle {
         return state_.square_capacity();
     }
     
-    ElementPosition & PuzzleState::blank_space_position()
+    ElementPosition PuzzleState::blank_space_position()
     {
-        if (blank_space_position_.line == -1 && blank_space_position_.row == -1)
-        {
-            blank_space_position_ = FindBlankSpace();
-        }
+//        if (blank_space_position_.line == -1 && blank_space_position_.row == -1)
+//        {
+//            blank_space_position_ = FindBlankSpace();
+//        }
         
-        return blank_space_position_;
+        return FindBlankSpace();
     }
     
     void PuzzleState::Print()
@@ -185,27 +189,26 @@ namespace eightPuzzle {
         return children;
     }
     
-    ElementPosition & PuzzleState::FindBlankSpace()
+    ElementPosition PuzzleState::FindBlankSpace()
     {
-        ElementPosition * position = new ElementPosition(-1, -1);
+        ElementPosition position = ElementPosition(-1, -1);
         bool found = false;
         
         for (int i = 0; i < square_capacity() && !found; i++) {
             for (int j = 0; j < square_capacity() && !found; j++) {
                 if ((*this)[i][j] == kBlankSpace) {
-                    position->line = i;
-                    position->row = j;
+                    position.line = i;
+                    position.row = j;
                     found = true;
                 }
             }
         }
         
         if (!found) {
-            delete position;
             throw NoBlankSpaceException();
         }
         
-        return *position;
+        return position;
     }
     
     PuzzleState * PuzzleState::Copy()

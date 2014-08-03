@@ -38,16 +38,17 @@ namespace eightPuzzle {
 //                children.at(i)->Print();
                 
                 if (!ArrayContainsState(expanded_states, children.at(i))) {
-                    //std::cout << "NO" << std::endl;
+//                    std::cout << "NO" << std::endl;
                     states_to_expand.QueueItem(children.at(i));
                     expanded_states.push_back(children.at(i));
                 }
-//                else {
+                else {
 //                    std::cout << "YES" << std::endl;
-//                }
+                    delete children.at(i);
+                }
             }
             
-            if (runs++ % 100 == 0) {
+            if (runs++ % 1000 == 0) {
                 std::cout << "Run no: " << runs-1 << std::endl;
             }
         }
