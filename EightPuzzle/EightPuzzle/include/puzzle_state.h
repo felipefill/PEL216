@@ -29,7 +29,7 @@ namespace eightPuzzle
         
         ElementPosition & FindBlankSpace();
         
-        PuzzleState & copy();
+        PuzzleState * Copy();
         void SwitchValues (int *a, int *b);
         
       public:
@@ -37,7 +37,7 @@ namespace eightPuzzle
         ~PuzzleState();
         
         bool operator == (PuzzleState & p);
-        PuzzleState & operator + (PuzzleOperations operation);
+        PuzzleState * operator + (PuzzleOperations operation);
         Vector<int> operator [] (int index) const;
         Vector<int> & operator [] (int index);
         

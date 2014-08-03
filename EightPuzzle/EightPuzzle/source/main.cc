@@ -28,7 +28,17 @@ int main()
 
     std::vector<PuzzleState*> result = search->DoSearch(initial_state, goal_state);
 
-    std::cout << result.size() << std::endl;
+    std::cout << "\n\n" << std::endl;
+    if (result.size() > 0) {
+        std::cout << "Found this result: " << std::endl;
+        for (int i = 0; i < result.size(); i++) {
+            result.at(i)->Print();
+        }
+    }
+    else {
+        std::cout << "Found no results for initial state:" << std::endl;
+        initial_state->Print();
+    }
 
     delete initial_state;
     delete goal_state;

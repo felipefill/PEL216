@@ -23,17 +23,28 @@ namespace eightPuzzle {
         PuzzleState * current_element;
         long runs = 0;
         while (!states_to_expand.IsEmpty()) {
+            
             current_element = states_to_expand.DequeueItem();
+//            std::cout << "dequeue: " << std::endl;
+//            current_element->Print();
+            
             if (*current_element == *goal_state) {
                 return current_element->BuildPathToRoot();
             }
             
             std::vector<PuzzleState *> children = current_element->Children();
             for (int i = 0; i < children.size(); i++) {
+//                std::cout << "was child expanded before?" << std::endl;
+//                children.at(i)->Print();
+                
                 if (!ArrayContainsState(expanded_states, children.at(i))) {
+                    //std::cout << "NO" << std::endl;
                     states_to_expand.QueueItem(children.at(i));
                     expanded_states.push_back(children.at(i));
                 }
+//                else {
+//                    std::cout << "YES" << std::endl;
+//                }
             }
             
             if (runs++ % 100 == 0) {

@@ -39,44 +39,36 @@ namespace eightPuzzle {
         return equals;
     }
     
-    PuzzleState & PuzzleState::operator + (PuzzleOperations operation)
+    PuzzleState * PuzzleState::operator + (PuzzleOperations operation)
     {
         int line = blank_space_position().line;
         int row = blank_space_position().row;
         
-        PuzzleState * result = &copy();
+        PuzzleState * result = Copy();
         
         switch (operation) {
             case kMoveBlankSpaceUp:
-                if (line > 0 && line <= square_capacity()) {
+                if (line > 0) {
                     SwitchValues(&(*result)[line - 1][row], &(*result)[line][row]);
                     result->blank_space_position_.line -= 1;
                 }
                 else {
-                    /*
-                        The first condition tests that we will not be going out of bounds;
-                        The second one tests if we ARE out of bounds.
-                     */
                     throw InvalidOpeartionException();
                 }
                 break;
                 
             case kMoveBlankSpaceDown:
-                if (line >= 0 && line < square_capacity()) {
+                if (line < square_capacity() - 1) {
                     SwitchValues(&(*result)[line + 1][row], &(*result)[line][row]);
                     result->blank_space_position_.line += 1;
                 }
                 else {
-                    /*
-                        The first condition tests if we ARE out of bounds;
-                        The second one tests if we will be going out of bounds.
-                     */
                     throw InvalidOpeartionException();
                 }
                 break;
                 
             case kMoveBlankSpaceToTheLeft:
-                if (row > 0 && row <= square_capacity()) {
+                if (row > 0) {
                     SwitchValues(&(*result)[line][row - 1], &(*result)[line][row]);
                     result->blank_space_position_.row -= 1;
                 }
@@ -86,7 +78,7 @@ namespace eightPuzzle {
                 break;
                 
             case kMoveBlankSpaceToTheRight:
-                if (row >= 0 && row < square_capacity()) {
+                if (row < square_capacity() - 1) {
                     SwitchValues(&(*result)[line][row + 1], &(*result)[line][row]);
                     result->blank_space_position_.row += 1;
                 }
@@ -99,7 +91,7 @@ namespace eightPuzzle {
                 break;
         }
         
-        return *result;
+        return result;
     }
     
     Vector<int> PuzzleState::operator [] (int index) const
@@ -160,24 +152,33 @@ namespace eightPuzzle {
     std::vector<PuzzleState *> PuzzleState::Children()
     {
         std::vector<PuzzleState *> children;
+        PuzzleState * result;
         
         try {
-            children.push_back(this + kMoveBlankSpaceToTheLeft);
+            result = *this + kMoveBlankSpaceToTheLeft;
+            result->set_parent_state(this);
+            children.push_back(result);
         }
         catch (InvalidOpeartionException e) { }
         
         try {
-            children.push_back(this + kMoveBlankSpaceToTheRight);
+            result = *this + kMoveBlankSpaceToTheRight;
+            result->set_parent_state(this);
+            children.push_back(result);
         }
         catch (InvalidOpeartionException e) { }
         
         try {
-            children.push_back(this + kMoveBlankSpaceDown);
+            result = *this + kMoveBlankSpaceDown;
+            result->set_parent_state(this);
+            children.push_back(result);
         }
         catch (InvalidOpeartionException e) { }
         
         try {
-            children.push_back(this + kMoveBlankSpaceUp);
+            result = *this + kMoveBlankSpaceUp;
+            result->set_parent_state(this);
+            children.push_back(result);
         }
         catch (InvalidOpeartionException e) { }
         
@@ -207,11 +208,17 @@ namespace eightPuzzle {
         return *position;
     }
     
-    PuzzleState & PuzzleState::copy()
+    PuzzleState * PuzzleState::Copy()
     {
-        PuzzleState * copy = new PuzzleState(*this);
+        PuzzleState * copy = new PuzzleState();
         
-        return *copy;
+        for (int i = 0; i < square_capacity(); i++) {
+            for (int j = 0; j < square_capacity(); j++) {
+                (*copy)[i][j] = (*this)[i][j];
+            }
+        }
+        
+        return copy;
     }
     
     void PuzzleState::SwitchValues (int * a, int * b)
