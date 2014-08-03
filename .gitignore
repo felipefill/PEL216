@@ -32,3 +32,6 @@ build-*
 # QtCreator
 
 *.autosave
+
+# X-Code
+xcshareddata/
