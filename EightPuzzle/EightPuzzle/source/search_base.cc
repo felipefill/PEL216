@@ -16,4 +16,15 @@ namespace eightPuzzle {
         throw NotImplementedException();
     }
     
+    bool SearchBase::ArrayContainsState(std::vector<PuzzleState *> array, PuzzleState *state)
+    {
+        for (int i = 0; i < array.size(); i++) {
+            if (*array.at(i) == *state) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
 }

@@ -15,6 +15,9 @@ namespace eightPuzzle {
     
     class SearchBase : public SearchInterface
     {
+      protected:
+        bool ArrayContainsState(std::vector<PuzzleState *> array, PuzzleState *state);
+        
       public:
         std::vector<PuzzleState*> DoSearch(PuzzleState * initial_state, PuzzleState * goal_state);
     };

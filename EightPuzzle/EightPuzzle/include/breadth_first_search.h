@@ -27,7 +27,6 @@ namespace eightPuzzle {
       class BreadthFirstSearch : public SearchBase
       {
         private:
-          bool ArrayContainsState(std::vector<PuzzleState *> array, PuzzleState *state);
           
         public:
           std::vector<PuzzleState*> DoSearch(PuzzleState * initial_state, PuzzleState * goal_state);
