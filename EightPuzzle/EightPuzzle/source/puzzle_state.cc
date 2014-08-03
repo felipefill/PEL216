@@ -44,11 +44,11 @@ namespace eightPuzzle {
         int line = blank_space_position().line;
         int row = blank_space_position().row;
         
-        PuzzleState * result = Copy();
-        
         if (line < 0 || line > square_capacity() - 1 || row < 0 || row > square_capacity() - 1) {
             throw InvalidOpeartionException();
         }
+        
+        PuzzleState * result = Copy();
         
         switch (operation) {
             case kMoveBlankSpaceUp:
@@ -57,6 +57,7 @@ namespace eightPuzzle {
                     result->blank_space_position_.line -= 1;
                 }
                 else {
+                    delete result;
                     throw InvalidOpeartionException();
                 }
                 break;
@@ -67,6 +68,7 @@ namespace eightPuzzle {
                     result->blank_space_position_.line += 1;
                 }
                 else {
+                    delete result;
                     throw InvalidOpeartionException();
                 }
                 break;
@@ -77,6 +79,7 @@ namespace eightPuzzle {
                     result->blank_space_position_.row -= 1;
                 }
                 else {
+                    delete result;
                     throw InvalidOpeartionException();
                 }
                 break;
@@ -87,6 +90,7 @@ namespace eightPuzzle {
                     result->blank_space_position_.row += 1;
                 }
                 else {
+                    delete result;
                     throw InvalidOpeartionException();
                 }
                 break;
