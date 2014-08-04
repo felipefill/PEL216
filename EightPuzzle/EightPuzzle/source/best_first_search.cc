@@ -51,7 +51,6 @@ namespace eightPuzzle
                 }
             }
             
-            // This ordering will garantee that we have the highest score always on top of the stack
             Puzzle::OrderByScoreAscending(states_to_visit);
             
         }

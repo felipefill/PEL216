@@ -16,18 +16,17 @@ namespace eightPuzzle
     
     std::vector<PuzzleState *> HillClimbingSearch::DoSearch(PuzzleState *initial_state, PuzzleState *goal_state)
     {
-        std::vector<PuzzleState *> states_to_visit;
+        Stack<PuzzleState> states_to_visit = Stack<PuzzleState>();
         std::vector<PuzzleState *> visited_states;
         
-        states_to_visit.push_back(initial_state);
+        states_to_visit.Push(initial_state);
         visited_states.push_back(initial_state);
         
         int highest_score = 0;
         
         PuzzleState * current_state;
-        while (!states_to_visit.empty()) {
-            current_state = states_to_visit.back();
-            states_to_visit.pop_back();
+        while (!states_to_visit.IsEmpty()) {
+            current_state = states_to_visit.Pop();
             
             int score = Puzzle::EvaluateScoreForState(current_state);
             if (score > highest_score) {
@@ -45,7 +44,7 @@ namespace eightPuzzle
                 Puzzle::OrderByScoreDecreasing(children);
                 
                 if (!ArrayContainsState(visited_states, children.at(0))) {
-                    states_to_visit.push_back(children.at(0));
+                    states_to_visit.Push(children.at(0));
                     visited_states.push_back(children.at(0));
                 }
             }

@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include "../include/puzzle.h"
-#include "../include/stack.h"
 #include "../include/a_star_search.h"
 
 namespace eightPuzzle
