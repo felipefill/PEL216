@@ -15,17 +15,20 @@
 #include "square_matrix.h"
 #include "puzzle_state.h"
 #include "puzzle.h"
-#include "../include/depth_first_search.h"
+#include "../include/best_first_search.h"
 
 using namespace eightPuzzle;
 
 int main()
 {
-    DepthFirstSearch * search = new DepthFirstSearch();
+    BestFirstSearch * search = new BestFirstSearch();
 
-    PuzzleState * initial_state = Puzzle::GenerateRandomState();
+    PuzzleState * initial_state = Puzzle::GenerateEasyInitialState();
     PuzzleState * goal_state = Puzzle::GenerateGoalState();
 
+    std::cout << "Starting search with initial state: " << std::endl;
+    initial_state->Print();
+    
     std::vector<PuzzleState*> result = search->DoSearch(initial_state, goal_state);
 
     std::cout << "\n\n" << std::endl;
@@ -36,8 +39,7 @@ int main()
         }
     }
     else {
-        std::cout << "Found no results for initial state:" << std::endl;
-        initial_state->Print();
+        std::cout << "Found no results." << std::endl;
     }
 
     delete initial_state;
