@@ -19,12 +19,13 @@
 #include "../include/breadth_first_search.h"
 #include "../include/depth_first_search.h"
 #include "../include/a_star_search.h"
+#include "../include/hill_climbing_search.h"
 
 using namespace eightPuzzle;
 
 int main()
 {
-    PuzzleState * initial_state = Puzzle::GenerateTestInitialState();
+    PuzzleState * initial_state = Puzzle::GenerateEasyInitialState();
     PuzzleState * goal_state = Puzzle::GenerateGoalState();
 
     std::cout << "Starting search with initial state: " << std::endl;

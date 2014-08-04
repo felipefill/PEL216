@@ -148,6 +148,11 @@ namespace eightPuzzle
         std::sort(states.begin(), states.end(), Puzzle::CompareScoreAscending);
     }
     
+    void Puzzle::OrderByScoreDecreasing(std::vector<PuzzleState *> & states)
+    {
+        std::sort(states.begin(), states.end(), Puzzle::CompareScoreDecreasing);
+    }
+    
     void Puzzle::OrderByHeuristicDecreasing(std::vector<PuzzleState *> & states)
     {
         std::sort(states.begin(), states.end(), Puzzle::CompareHeuristicDecreasing);

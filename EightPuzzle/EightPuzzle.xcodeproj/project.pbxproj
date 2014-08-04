@@ -15,6 +15,7 @@
 		3EAD891D198F076900BDB87E /* depth_first_search.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD891C198F076900BDB87E /* depth_first_search.cc */; };
 		3EAD8922198F158700BDB87E /* best_first_search.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD8921198F158700BDB87E /* best_first_search.cc */; };
 		3EEAD9301990248500FF73A9 /* a_star_search.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3EEAD92F1990248500FF73A9 /* a_star_search.cc */; };
+		3EEAD933199039F900FF73A9 /* hill_climbing_search.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3EEAD932199039F900FF73A9 /* hill_climbing_search.cc */; };
 		3EF4E19D197C7EC300976B62 /* EightPuzzle.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EF4E19C197C7EC300976B62 /* EightPuzzle.1 */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		3EAD8921198F158700BDB87E /* best_first_search.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = best_first_search.cc; sourceTree = "<group>"; };
 		3EEAD92E1990245500FF73A9 /* a_star_search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = a_star_search.h; sourceTree = "<group>"; };
 		3EEAD92F1990248500FF73A9 /* a_star_search.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = a_star_search.cc; sourceTree = "<group>"; };
+		3EEAD931199039C300FF73A9 /* hill_climbing_search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hill_climbing_search.h; sourceTree = "<group>"; };
+		3EEAD932199039F900FF73A9 /* hill_climbing_search.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hill_climbing_search.cc; sourceTree = "<group>"; };
 		3EF4E197197C7EC300976B62 /* EightPuzzle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EightPuzzle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF4E19C197C7EC300976B62 /* EightPuzzle.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EightPuzzle.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +137,7 @@
 				3E4F7C19198F06A0003F5A6B /* depth_first_search.h */,
 				3EAD8920198F153900BDB87E /* best_first_search.h */,
 				3EEAD92E1990245500FF73A9 /* a_star_search.h */,
+				3EEAD931199039C300FF73A9 /* hill_climbing_search.h */,
 			);
 			name = search;
 			sourceTree = "<group>";
@@ -155,6 +159,7 @@
 				3EAD891C198F076900BDB87E /* depth_first_search.cc */,
 				3EAD8921198F158700BDB87E /* best_first_search.cc */,
 				3EEAD92F1990248500FF73A9 /* a_star_search.cc */,
+				3EEAD932199039F900FF73A9 /* hill_climbing_search.cc */,
 			);
 			name = search;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EEAD933199039F900FF73A9 /* hill_climbing_search.cc in Sources */,
 				3EAD891D198F076900BDB87E /* depth_first_search.cc in Sources */,
 				3EAD8922198F158700BDB87E /* best_first_search.cc in Sources */,
 				3E071DFD197C7F9300BDCC51 /* main.cc in Sources */,

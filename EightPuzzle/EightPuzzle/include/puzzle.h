@@ -26,6 +26,14 @@ namespace eightPuzzle
             return x_score < y_score;
         }
         
+        inline static bool CompareScoreDecreasing(PuzzleState * x, PuzzleState * y)
+        {
+            int x_score = Puzzle::EvaluateScoreForState(x);
+            int y_score = Puzzle::EvaluateScoreForState(y);
+            
+            return x_score > y_score;
+        }
+        
         inline static bool CompareHeuristicDecreasing(PuzzleState * x, PuzzleState * y)
         {
             int x_heuristic = Puzzle::EvaluateHeuristicForState(x);
@@ -44,6 +52,7 @@ namespace eightPuzzle
         static long EvaluateHeuristicForState(PuzzleState * state);
         
         static void OrderByScoreAscending(std::vector<PuzzleState *> & states);
+        static void OrderByScoreDecreasing(std::vector<PuzzleState *> & states);
         static void OrderByHeuristicDecreasing(std::vector<PuzzleState *> & states);
     };
 }
