@@ -56,8 +56,8 @@ namespace eightPuzzle
         PuzzleState * state = new PuzzleState();
         
         (*state)[0][0] = 1; (*state)[0][1] = 2; (*state)[0][2] = 3;
-        (*state)[1][0] = 4; (*state)[1][1] = 5; (*state)[1][2] = 6;
-        (*state)[2][0] = 7; (*state)[2][1] = kBlankSpace; (*state)[2][2] = 8;
+        (*state)[1][0] = 4; (*state)[1][1] = kBlankSpace; (*state)[1][2] = 5;
+        (*state)[2][0] = 7; (*state)[2][1] = 8; (*state)[2][2] = 6;
         
         return state;
     }

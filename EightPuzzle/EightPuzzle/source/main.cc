@@ -23,7 +23,7 @@ int main()
 {
     DepthFirstSearch * search = new DepthFirstSearch();
 
-    PuzzleState * initial_state = Puzzle::GenerateEasyInitialState();
+    PuzzleState * initial_state = Puzzle::GenerateRandomState();
     PuzzleState * goal_state = Puzzle::GenerateGoalState();
 
     std::vector<PuzzleState*> result = search->DoSearch(initial_state, goal_state);
