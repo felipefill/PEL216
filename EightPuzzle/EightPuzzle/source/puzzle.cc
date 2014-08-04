@@ -115,9 +115,38 @@ namespace eightPuzzle
         return score;
     }
     
+    int Puzzle::EvaluateHeuristicForState(PuzzleState * state)
+    {
+        PuzzleState * goal_state = Puzzle::GenerateGoalState();
+        int score = kPuzzleSize;
+        int cost = 0;
+        int heuristic = 1000000;
+        
+        if (state->square_capacity() == goal_state->square_capacity()) {
+            for (int i = 0; i < state->square_capacity(); i++) {
+                for (int j = 0; j < state->square_capacity(); j++) {
+                    if ((*state)[i][j] == (*goal_state)[i][j]) {
+                        score--;
+                    }
+                    
+                    cost += 0;
+                }
+            }
+            
+            heuristic = cost + score;
+        }
+        
+        return heuristic;
+    }
+    
     void Puzzle::OrderByScoreAscending(std::vector<PuzzleState *> & states)
     {
-        std::sort(states.begin(), states.end(), Puzzle::compare);
+        std::sort(states.begin(), states.end(), Puzzle::CompareScoreAscending);
+    }
+    
+    void Puzzle::OrderByHeuristicDecreasing(std::vector<PuzzleState *> & states)
+    {
+        std::sort(states.begin(), states.end(), Puzzle::CompareHeuristicDecreasing);
     }
     
 }
