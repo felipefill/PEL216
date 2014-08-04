@@ -12,7 +12,7 @@
 #include <iostream>
 #include <exception>
 
-class InvalidOpeartionException : public std::exception
+class InvalidOperationException : public std::exception
 {
     inline virtual const char *what() const throw() {
         return "You tried to perform an invalid operation!";

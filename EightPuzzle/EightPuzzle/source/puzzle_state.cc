@@ -8,7 +8,7 @@
 
 #include "puzzle_state.h"
 #include "../include/no_blank_space_exception.h"
-#include "../include/invalid_opeartion_exception.h"
+#include "../include/invalid_operation_exception.h"
 
 namespace eightPuzzle {
     
@@ -45,7 +45,7 @@ namespace eightPuzzle {
         int row = blank_space_position().row;
         
         if (line < 0 || line > square_capacity() - 1 || row < 0 || row > square_capacity() - 1) {
-            throw InvalidOpeartionException();
+            throw InvalidOperationException();
         }
         
         PuzzleState * result = Copy();
@@ -58,7 +58,7 @@ namespace eightPuzzle {
                 }
                 else {
                     delete result;
-                    throw InvalidOpeartionException();
+                    throw InvalidOperationException();
                 }
                 break;
                 
@@ -69,7 +69,7 @@ namespace eightPuzzle {
                 }
                 else {
                     delete result;
-                    throw InvalidOpeartionException();
+                    throw InvalidOperationException();
                 }
                 break;
                 
@@ -80,7 +80,7 @@ namespace eightPuzzle {
                 }
                 else {
                     delete result;
-                    throw InvalidOpeartionException();
+                    throw InvalidOperationException();
                 }
                 break;
                 
@@ -91,7 +91,7 @@ namespace eightPuzzle {
                 }
                 else {
                     delete result;
-                    throw InvalidOpeartionException();
+                    throw InvalidOperationException();
                 }
                 break;
                 
@@ -167,28 +167,28 @@ namespace eightPuzzle {
             result->set_parent_state(this);
             children.push_back(result);
         }
-        catch (InvalidOpeartionException e) { }
+        catch (InvalidOperationException e) { }
         
         try {
             result = *this + kMoveBlankSpaceToTheRight;
             result->set_parent_state(this);
             children.push_back(result);
         }
-        catch (InvalidOpeartionException e) { }
+        catch (InvalidOperationException e) { }
         
         try {
             result = *this + kMoveBlankSpaceDown;
             result->set_parent_state(this);
             children.push_back(result);
         }
-        catch (InvalidOpeartionException e) { }
+        catch (InvalidOperationException e) { }
         
         try {
             result = *this + kMoveBlankSpaceUp;
             result->set_parent_state(this);
             children.push_back(result);
         }
-        catch (InvalidOpeartionException e) { }
+        catch (InvalidOperationException e) { }
         
         return children;
     }
