@@ -9,61 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EightPuzzle/include/stack.h"
-            timestampString = "428805643.09531"
+            filePath = "EightPuzzle/source/best_first_search.cc"
+            timestampString = "428812268.785605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "class Stack"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EightPuzzle/source/depth_first_search.cc"
-            timestampString = "428806145.100599"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "DepthFirstSearch::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EightPuzzle/source/depth_first_search.cc"
-            timestampString = "428806539.873238"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "DepthFirstSearch::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EightPuzzle/source/depth_first_search.cc"
-            timestampString = "428806539.873238"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "DepthFirstSearch::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "BestFirstSearch::DoSearch(PuzzleState *initial_state, PuzzleState *goal_state)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

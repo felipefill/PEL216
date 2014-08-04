@@ -16,20 +16,25 @@
 #include "puzzle_state.h"
 #include "puzzle.h"
 #include "../include/best_first_search.h"
+#include "../include/breadth_first_search.h"
+#include "../include/depth_first_search.h"
 
 using namespace eightPuzzle;
 
 int main()
 {
-    BestFirstSearch * search = new BestFirstSearch();
-
-    PuzzleState * initial_state = Puzzle::GenerateEasyInitialState();
+    PuzzleState * initial_state = Puzzle::GenerateTestInitialState();
     PuzzleState * goal_state = Puzzle::GenerateGoalState();
 
     std::cout << "Starting search with initial state: " << std::endl;
     initial_state->Print();
     
-    std::vector<PuzzleState*> result = search->DoSearch(initial_state, goal_state);
+    clock_t begin = clock();
+    
+    std::vector<PuzzleState*> result = BestFirstSearch().DoSearch(initial_state, goal_state);
+    
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
 
     std::cout << "\n\n" << std::endl;
     if (result.size() > 0) {
@@ -41,10 +46,11 @@ int main()
     else {
         std::cout << "Found no results." << std::endl;
     }
+    
+    std::cout << "TIME ELAPSED: " << elapsed_secs << " seconds" << std::endl;
 
     delete initial_state;
     delete goal_state;
-    delete search;
     
 	return 0;
 }

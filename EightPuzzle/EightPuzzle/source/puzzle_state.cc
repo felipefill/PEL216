@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
-#include "puzzle_state.h"
+#include "../include/puzzle_state.h"
+#include "../include/puzzle.h"
 #include "../include/no_blank_space_exception.h"
 #include "../include/invalid_operation_exception.h"
 
@@ -124,11 +125,6 @@ namespace eightPuzzle {
     
     ElementPosition PuzzleState::blank_space_position()
     {
-//        if (blank_space_position_.line == -1 && blank_space_position_.row == -1)
-//        {
-//            blank_space_position_ = FindBlankSpace();
-//        }
-        
         return FindBlankSpace();
     }
     

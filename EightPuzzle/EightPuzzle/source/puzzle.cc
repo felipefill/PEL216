@@ -10,6 +10,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <iostream>
 
 #include "puzzle.h"
 #include "puzzle_state.h"
@@ -53,24 +54,70 @@ namespace eightPuzzle
     
     PuzzleState * Puzzle::GenerateEasyInitialState()
     {
-        PuzzleState * state = new PuzzleState();
+        static PuzzleState * state = nullptr;
         
-        (*state)[0][0] = 1; (*state)[0][1] = 2; (*state)[0][2] = 3;
-        (*state)[1][0] = 4; (*state)[1][1] = kBlankSpace; (*state)[1][2] = 5;
-        (*state)[2][0] = 7; (*state)[2][1] = 8; (*state)[2][2] = 6;
+        if (state == nullptr) {
+            state = new PuzzleState();
+            
+            (*state)[0][0] = 1; (*state)[0][1] = 2; (*state)[0][2] = 3;
+            (*state)[1][0] = 4; (*state)[1][1] = kBlankSpace; (*state)[1][2] = 5;
+            (*state)[2][0] = 7; (*state)[2][1] = 8; (*state)[2][2] = 6;
+        }
+        
+        return state;
+    }
+    
+    PuzzleState * Puzzle::GenerateTestInitialState()
+    {
+        static PuzzleState * state = nullptr;
+        
+        if (state == nullptr) {
+            state = new PuzzleState();
+            
+            (*state)[0][0] = kBlankSpace; (*state)[0][1] = 1; (*state)[0][2] = 2;
+            (*state)[1][0] = 3; (*state)[1][1] = 4; (*state)[1][2] = 5;
+            (*state)[2][0] = 6; (*state)[2][1] = 7; (*state)[2][2] = 8;
+        }
         
         return state;
     }
     
     PuzzleState * Puzzle::GenerateGoalState()
     {
-        PuzzleState * state = new PuzzleState();
+        static PuzzleState * state = nullptr;
         
-        (*state)[0][0] = 1; (*state)[0][1] = 2; (*state)[0][2] = 3;
-        (*state)[1][0] = 4; (*state)[1][1] = 5; (*state)[1][2] = 6;
-        (*state)[2][0] = 7; (*state)[2][1] = 8; (*state)[2][2] = kBlankSpace;
+        if (state == nullptr) {
+            state = new PuzzleState();
+            
+            (*state)[0][0] = 1; (*state)[0][1] = 2; (*state)[0][2] = 3;
+            (*state)[1][0] = 4; (*state)[1][1] = 5; (*state)[1][2] = 6;
+            (*state)[2][0] = 7; (*state)[2][1] = 8; (*state)[2][2] = kBlankSpace;
+        }
         
         return state;
+    }
+    
+    int Puzzle::EvaluateScoreForState(PuzzleState * state)
+    {
+        PuzzleState * goal_state = Puzzle::GenerateGoalState();
+        int score = 0;
+        
+        if (state->square_capacity() == goal_state->square_capacity()) {
+            for (int i = 0; i < state->square_capacity(); i++) {
+                for (int j = 0; j < state->square_capacity(); j++) {
+                    if ((*state)[i][j] == (*goal_state)[i][j]) {
+                        score++;
+                    }
+                }
+            }
+        }
+        
+        return score;
+    }
+    
+    void Puzzle::OrderByScoreAscending(std::vector<PuzzleState *> & states)
+    {
+        std::sort(states.begin(), states.end(), Puzzle::compare);
     }
     
 }
