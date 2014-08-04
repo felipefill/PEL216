@@ -15,13 +15,13 @@
 #include "square_matrix.h"
 #include "puzzle_state.h"
 #include "puzzle.h"
-#include "../include/breadth_first_search.h"
+#include "../include/depth_first_search.h"
 
 using namespace eightPuzzle;
 
 int main()
 {
-    BreadthFirstSearch * search = new BreadthFirstSearch();
+    DepthFirstSearch * search = new DepthFirstSearch();
 
     PuzzleState * initial_state = Puzzle::GenerateEasyInitialState();
     PuzzleState * goal_state = Puzzle::GenerateGoalState();

@@ -20,14 +20,11 @@
 #define BREADTH_FIRST_SEARCH_H_
 
 #include "search_base.h"
-#include "puzzle_state.h"
 
 namespace eightPuzzle {
   
       class BreadthFirstSearch : public SearchBase
       {
-        private:
-          
         public:
           std::vector<PuzzleState*> DoSearch(PuzzleState * initial_state, PuzzleState * goal_state);
       };
