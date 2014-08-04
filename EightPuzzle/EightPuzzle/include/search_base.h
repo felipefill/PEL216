@@ -10,16 +10,26 @@
 #define EightPuzzle_search_base_h
 
 #include "search_interface.h"
+#include "puzzle.h"
 
 namespace eightPuzzle {
     
     class SearchBase : public SearchInterface
     {
       protected:
+        PuzzleState * initial_state_;
+        
         bool ArrayContainsState(std::vector<PuzzleState *> array, PuzzleState *state);
         
       public:
-        std::vector<PuzzleState*> DoSearch(PuzzleState * initial_state, PuzzleState * goal_state);
+        SearchBase(PuzzleState * initial_state);
+        
+        std::vector<PuzzleState*> DoSearch();
+        
+        inline PuzzleState * initial_state() const { return initial_state_; };
+        inline void set_initial_state(PuzzleState * initial_state) { initial_state_ = initial_state; }
+        
+        inline PuzzleState * goal_state() const { return Puzzle::GenerateGoalState(); }
     };
     
 }

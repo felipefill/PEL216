@@ -12,13 +12,15 @@
 
 namespace eightPuzzle {
     
-    std::vector<PuzzleState*> BreadthFirstSearch::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)
+    BreadthFirstSearch::BreadthFirstSearch(PuzzleState * initial_state) : SearchBase(initial_state) { }
+    
+    std::vector<PuzzleState*> BreadthFirstSearch::DoSearch()
     {
         Queue<PuzzleState> states_to_expand = Queue<PuzzleState>();
         std::vector<PuzzleState *> expanded_states;
         
-        expanded_states.push_back(initial_state);
-        states_to_expand.QueueItem(initial_state);
+        expanded_states.push_back(initial_state());
+        states_to_expand.QueueItem(initial_state());
 
         PuzzleState * current_element;
         long runs = 0;
@@ -26,7 +28,7 @@ namespace eightPuzzle {
             
             current_element = states_to_expand.DequeueItem();
             
-            if (*current_element == *goal_state) {
+            if (*current_element == *goal_state()) {
                 return current_element->BuildPathToRoot();
             }
             

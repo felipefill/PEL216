@@ -14,13 +14,15 @@
 namespace eightPuzzle
 {
     
-    std::vector<PuzzleState *> HillClimbingSearch::DoSearch(PuzzleState *initial_state, PuzzleState *goal_state)
+    HillClimbingSearch::HillClimbingSearch(PuzzleState * initial_state) : SearchBase(initial_state) { }
+    
+    std::vector<PuzzleState *> HillClimbingSearch::DoSearch()
     {
         Stack<PuzzleState> states_to_visit = Stack<PuzzleState>();
         std::vector<PuzzleState *> visited_states;
         
-        states_to_visit.Push(initial_state);
-        visited_states.push_back(initial_state);
+        states_to_visit.Push(initial_state());
+        visited_states.push_back(initial_state());
         
         int highest_score = 0;
         
@@ -34,7 +36,7 @@ namespace eightPuzzle
                 //std::cout << "HIGHEST SCORE: " << highest_score << std::endl;
             }
             
-            if (*current_state == *goal_state) {
+            if (*current_state == *goal_state()) {
                 return current_state->BuildPathToRoot();
             }
             

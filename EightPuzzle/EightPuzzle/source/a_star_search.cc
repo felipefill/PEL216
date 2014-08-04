@@ -13,13 +13,15 @@
 namespace eightPuzzle
 {
 
-    std::vector<PuzzleState *> AStarSearch::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)
+    AStarSearch::AStarSearch(PuzzleState * initial_state) : SearchBase(initial_state) { }
+    
+    std::vector<PuzzleState *> AStarSearch::DoSearch()
     {
         std::vector<PuzzleState *> states_to_visit;
         std::vector<PuzzleState *> visited_states;
         
-        states_to_visit.push_back(initial_state);
-        visited_states.push_back(initial_state);
+        states_to_visit.push_back(initial_state());
+        visited_states.push_back(initial_state());
         
         long lowest_score = 1000000;
         
@@ -34,7 +36,7 @@ namespace eightPuzzle
                 //std::cout << "LOWEST HEURISTIC: " << lowest_score << std::endl;
             }
             
-            if (*current_state == *goal_state) {
+            if (*current_state == *goal_state()) {
                 return current_state->BuildPathToRoot();
             }
             

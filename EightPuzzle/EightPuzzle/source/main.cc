@@ -23,24 +23,24 @@
 
 using namespace eightPuzzle;
 
-void ExecuteSearch(SearchBase * search_algorithm, PuzzleState * initial_state);
+void ExecuteSearch(SearchBase * search_algorithm);
 
 int main()
 {
     PuzzleState * initial_state = Puzzle::GenerateTestInitialState();
     
-    ExecuteSearch(new AStarSearch(), initial_state);
-    ExecuteSearch(new BestFirstSearch(), initial_state);
-    ExecuteSearch(new HillClimbingSearch(), initial_state);
-    ExecuteSearch(new DepthFirstSearch(), initial_state);
-    ExecuteSearch(new BreadthFirstSearch(), initial_state);
+    ExecuteSearch(new AStarSearch(initial_state));
+    ExecuteSearch(new BestFirstSearch(initial_state));
+    ExecuteSearch(new HillClimbingSearch(initial_state));
+    ExecuteSearch(new DepthFirstSearch(initial_state));
+    ExecuteSearch(new BreadthFirstSearch(initial_state));
     
     delete initial_state;
     
 	return 0;
 }
 
-void ExecuteSearch(SearchBase * search_algorithm, PuzzleState * initial_state)
+void ExecuteSearch(SearchBase * search_algorithm)
 {
     std::vector<PuzzleState*> result;
     
@@ -53,31 +53,31 @@ void ExecuteSearch(SearchBase * search_algorithm, PuzzleState * initial_state)
     
     if(search != nullptr) {
         std::cout << "A* SEARCH ALGORITHM~" << std::endl;
-        result = ((AStarSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+        result = ((AStarSearch *)search)->DoSearch();
     }
     else {
         search = dynamic_cast<HillClimbingSearch *>(search_algorithm);
         if (search != nullptr) {
             std::cout << "HILL-CLIMBING ALGORITHM~" << std::endl;
-            result = ((HillClimbingSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+            result = ((HillClimbingSearch *)search)->DoSearch();
         }
         else {
             search = dynamic_cast<BestFirstSearch *>(search_algorithm);
             if (search != nullptr) {
                 std::cout << "BEST-FIRST SEARCH ALGORITHM~" << std::endl;
-                result = ((BestFirstSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+                result = ((BestFirstSearch *)search)->DoSearch();
             }
             else {
                 search = dynamic_cast<DepthFirstSearch *>(search_algorithm);
                 if (search != nullptr) {
                     std::cout << "DEPTH-FIRST SEARCH ALGORITHM~" << std::endl;
-                    result = ((DepthFirstSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+                    result = ((DepthFirstSearch *)search)->DoSearch();
                 }
                 else {
                     search = dynamic_cast<BreadthFirstSearch *>(search_algorithm);
                     if (search != nullptr) {
                         std::cout << "BREADTH-FIRST SEARCH ALGORITHM~" << std::endl;
-                        result = ((BreadthFirstSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+                        result = ((BreadthFirstSearch *)search)->DoSearch();
                     }
                 }
             }

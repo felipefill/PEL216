@@ -13,13 +13,15 @@
 namespace eightPuzzle
 {
     
-    std::vector<PuzzleState*> DepthFirstSearch::DoSearch(PuzzleState * initial_state, PuzzleState * goal_state)
+    DepthFirstSearch::DepthFirstSearch(PuzzleState * initial_state) : SearchBase(initial_state) { }
+    
+    std::vector<PuzzleState*> DepthFirstSearch::DoSearch()
     {
         Stack<PuzzleState> to_expand = Stack<PuzzleState>();
         std::vector<PuzzleState *> visited_states;
         
-        to_expand.Push(initial_state);
-        visited_states.push_back(initial_state);
+        to_expand.Push(initial_state());
+        visited_states.push_back(initial_state());
         
         long runs = 0;
         
@@ -27,7 +29,7 @@ namespace eightPuzzle
         while (!to_expand.IsEmpty()) {
             current_element = to_expand.Pop();
             
-            if (*current_element == *goal_state) {
+            if (*current_element == *goal_state()) {
                 return current_element->BuildPathToRoot();
             }
             

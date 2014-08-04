@@ -16,7 +16,8 @@ namespace eightPuzzle {
     class DepthFirstSearch : public SearchBase
     {
       public:
-        std::vector<PuzzleState *> DoSearch(PuzzleState * initial_state, PuzzleState * goal_state);
+        DepthFirstSearch(PuzzleState * initial_state);
+        std::vector<PuzzleState *> DoSearch();
     };
 
 }
