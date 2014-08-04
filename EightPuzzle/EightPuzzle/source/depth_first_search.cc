@@ -43,7 +43,7 @@ namespace eightPuzzle
             }
             
             if (runs++ % 1000 == 0) {
-                std::cout << "Run no: " << runs-1 << std::endl;
+                //std::cout << "Run no: " << runs-1 << std::endl;
             }
         }
         

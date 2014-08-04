@@ -32,7 +32,7 @@ namespace eightPuzzle
             int score = Puzzle::EvaluateScoreForState(current_state);
             if (score > highest_score) {
                 highest_score = score;
-                std::cout << "HIGHEST SCORE: " << highest_score << std::endl;
+                //std::cout << "HIGHEST SCORE: " << highest_score << std::endl;
             }
             
             if (*current_state == *goal_state) {

@@ -23,73 +23,82 @@
 
 using namespace eightPuzzle;
 
+void ExecuteSearch(SearchBase * search_algorithm, PuzzleState * initial_state);
+
 int main()
 {
-    PuzzleState * initial_state = Puzzle::GenerateEasyInitialState();
-    PuzzleState * goal_state = Puzzle::GenerateGoalState();
+    PuzzleState * initial_state = Puzzle::GenerateTestInitialState();
+    
+    ExecuteSearch(new AStarSearch(), initial_state);
+    ExecuteSearch(new BestFirstSearch(), initial_state);
+    ExecuteSearch(new HillClimbingSearch(), initial_state);
+    ExecuteSearch(new DepthFirstSearch(), initial_state);
+    ExecuteSearch(new BreadthFirstSearch(), initial_state);
+    
+    delete initial_state;
+    
+	return 0;
+}
 
-    std::cout << "Starting search with initial state: " << std::endl;
-    initial_state->Print();
+void ExecuteSearch(SearchBase * search_algorithm, PuzzleState * initial_state)
+{
+    std::vector<PuzzleState*> result;
+    
+//    std::cout << "Starting search with initial state: " << std::endl;
+//    initial_state->Print();
     
     clock_t begin = clock();
     
-    std::vector<PuzzleState*> result = AStarSearch().DoSearch(initial_state, goal_state);
+    SearchBase * search = dynamic_cast<AStarSearch *>(search_algorithm);
+    
+    if(search != nullptr) {
+        std::cout << "A* SEARCH ALGORITHM~" << std::endl;
+        result = ((AStarSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+    }
+    else {
+        search = dynamic_cast<HillClimbingSearch *>(search_algorithm);
+        if (search != nullptr) {
+            std::cout << "HILL-CLIMBING ALGORITHM~" << std::endl;
+            result = ((HillClimbingSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+        }
+        else {
+            search = dynamic_cast<BestFirstSearch *>(search_algorithm);
+            if (search != nullptr) {
+                std::cout << "BEST-FIRST SEARCH ALGORITHM~" << std::endl;
+                result = ((BestFirstSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+            }
+            else {
+                search = dynamic_cast<DepthFirstSearch *>(search_algorithm);
+                if (search != nullptr) {
+                    std::cout << "DEPTH-FIRST SEARCH ALGORITHM~" << std::endl;
+                    result = ((DepthFirstSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+                }
+                else {
+                    search = dynamic_cast<BreadthFirstSearch *>(search_algorithm);
+                    if (search != nullptr) {
+                        std::cout << "BREADTH-FIRST SEARCH ALGORITHM~" << std::endl;
+                        result = ((BreadthFirstSearch *)search)->DoSearch(initial_state, Puzzle::GenerateGoalState());
+                    }
+                }
+            }
+        }
+    }
     
     clock_t end = clock();
     double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-
-    std::cout << "\n\n" << std::endl;
+    
     if (result.size() > 0) {
-        std::cout << "Found this result: " << std::endl;
-        for (int i = 0; i < result.size(); i++) {
-            result.at(i)->Print();
-        }
+        std::cout << "Found a result." << std::endl;
+//        for (int i = 0; i < result.size(); i++) {
+//            result.at(i)->Print();
+//        }
     }
     else {
         std::cout << "Found no results." << std::endl;
     }
     
     std::cout << "TIME ELAPSED: " << elapsed_secs << " seconds" << std::endl;
-
-    delete initial_state;
-    delete goal_state;
+    std::cout << "\n\n" << std::endl;
     
-	return 0;
 }
 
-/***
- *
- * There will be many methods to solve the puzzle.
- * All of them (so far) are search methods, such as BFS, A* and Hill-climbing.
- *
- * We will need a class to represent the puzzle (in its current state).
- * Also we need something to generate possible states
- * aaaaand some kind of data structure to hold the next states...
- * the next states are linked to the kind of solution that we will use
- * but we can generate the next possible states within the board/puzzle class.
- *
- *
- *
- */
-
-
-//    for (int i = 0; i < 100000; i++) {
-//        PuzzleState * state = Puzzle::GenerateRandomState();
-//
-//        state->Print();
-//        delete state;
-//
-//        std::this_thread::sleep_for (std::chrono::milliseconds(200));
-//    }
-
-//    state = state + kMoveBlankSpaceToTheLeft;
-//    state.Print();
-//
-//    state = state + kMoveBlankSpaceUp;
-//    state.Print();
-//
-//    state = state + kMoveBlankSpaceToTheRight;
-//    state.Print();
-//
-//    state = state + kMoveBlankSpaceDown;
-//    state.Print();

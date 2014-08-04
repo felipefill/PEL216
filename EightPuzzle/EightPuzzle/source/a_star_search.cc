@@ -32,7 +32,7 @@ namespace eightPuzzle
             long score = Puzzle::EvaluateHeuristicForState(current_state);
             if (score < lowest_score) {
                 lowest_score = score;
-                std::cout << "LOWEST HEURISTIC: " << lowest_score << std::endl;
+                //std::cout << "LOWEST HEURISTIC: " << lowest_score << std::endl;
             }
             
             if (*current_state == *goal_state) {
