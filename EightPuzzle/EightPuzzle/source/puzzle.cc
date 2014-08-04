@@ -115,12 +115,12 @@ namespace eightPuzzle
         return score;
     }
     
-    int Puzzle::EvaluateHeuristicForState(PuzzleState * state)
+    long Puzzle::EvaluateHeuristicForState(PuzzleState * state)
     {
         PuzzleState * goal_state = Puzzle::GenerateGoalState();
         int score = kPuzzleSize;
-        int cost = 0;
-        int heuristic = 1000000;
+        long cost = 0;
+        long heuristic = 1000000;
         
         if (state->square_capacity() == goal_state->square_capacity()) {
             for (int i = 0; i < state->square_capacity(); i++) {
@@ -128,10 +128,14 @@ namespace eightPuzzle
                     if ((*state)[i][j] == (*goal_state)[i][j]) {
                         score--;
                     }
-                    
-                    cost += 0;
                 }
             }
+            
+            ElementPosition blank_space_current = state->blank_space_position();
+            ElementPosition blank_space_goal = goal_state->blank_space_position();
+            
+            cost += abs(blank_space_current.row - blank_space_goal.row);
+            cost += abs(blank_space_current.line - blank_space_goal.line);
             
             heuristic = cost + score;
         }

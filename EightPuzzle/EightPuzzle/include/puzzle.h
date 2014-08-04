@@ -41,7 +41,7 @@ namespace eightPuzzle
         static PuzzleState * GenerateGoalState();
         
         static int EvaluateScoreForState(PuzzleState * state);
-        static int EvaluateHeuristicForState(PuzzleState * state);
+        static long EvaluateHeuristicForState(PuzzleState * state);
         
         static void OrderByScoreAscending(std::vector<PuzzleState *> & states);
         static void OrderByHeuristicDecreasing(std::vector<PuzzleState *> & states);

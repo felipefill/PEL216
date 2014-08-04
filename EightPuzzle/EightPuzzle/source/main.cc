@@ -18,6 +18,7 @@
 #include "../include/best_first_search.h"
 #include "../include/breadth_first_search.h"
 #include "../include/depth_first_search.h"
+#include "../include/a_star_search.h"
 
 using namespace eightPuzzle;
 
@@ -31,7 +32,7 @@ int main()
     
     clock_t begin = clock();
     
-    std::vector<PuzzleState*> result = BestFirstSearch().DoSearch(initial_state, goal_state);
+    std::vector<PuzzleState*> result = AStarSearch().DoSearch(initial_state, goal_state);
     
     clock_t end = clock();
     double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
