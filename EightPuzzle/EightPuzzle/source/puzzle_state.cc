@@ -170,7 +170,7 @@ namespace eightPuzzle {
         catch (InvalidOperationException e) { }
         
         try {
-            result = *this + kMoveBlankSpaceToTheRight;
+            result = *this + kMoveBlankSpaceUp;
             result->set_parent_state(this);
             children.push_back(result);
         }
@@ -184,7 +184,7 @@ namespace eightPuzzle {
         catch (InvalidOperationException e) { }
         
         try {
-            result = *this + kMoveBlankSpaceUp;
+            result = *this + kMoveBlankSpaceToTheRight;
             result->set_parent_state(this);
             children.push_back(result);
         }

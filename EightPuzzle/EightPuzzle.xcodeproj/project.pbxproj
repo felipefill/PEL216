@@ -51,6 +51,7 @@
 		3E80DBBA198D3BCB004B809D /* queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 		3EAD891C198F076900BDB87E /* depth_first_search.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = depth_first_search.cc; sourceTree = "<group>"; };
 		3EAD891E198F08E800BDB87E /* invalid_operation_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = invalid_operation_exception.h; sourceTree = "<group>"; };
+		3EAD891F198F0AD400BDB87E /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
 		3EF4E197197C7EC300976B62 /* EightPuzzle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EightPuzzle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF4E19C197C7EC300976B62 /* EightPuzzle.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EightPuzzle.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +152,7 @@
 		3E80DBB9198D3BA2004B809D /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				3EAD891F198F0AD400BDB87E /* stack.h */,
 				3E80DBBA198D3BCB004B809D /* queue.h */,
 				3E071E02197DBB1000BDCC51 /* constants.h */,
 			);

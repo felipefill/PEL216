@@ -1,3 +1,11 @@
+//
+//  queue.h
+//  EightPuzzle
+//
+//  Created by Felipe Fill Cardoso on 7/21/14.
+//  Copyright (c) 2014 Felipe Fill. All rights reserved.
+//
+
 #ifndef QUEUE_PUZZLE_H
 #define QUEUE_PUZZLE_H
 
@@ -8,10 +16,11 @@ class Queue
 {
 private:
     class QueueElement {
-      public:
+      private:
         T *value_;
         QueueElement *next_;
-
+        
+      public:
         inline QueueElement(T *value, QueueElement *next)
         {
             value_ = value;
