@@ -15,6 +15,17 @@ namespace eightPuzzle {
     
     class HillClimbingSearch : public SearchBase
     {
+    private:
+        void OrderByScoreDecreasing(std::vector<PuzzleState *> & states);
+        
+        inline static bool CompareScoreDecreasing(PuzzleState * x, PuzzleState * y)
+        {
+            int x_score = Puzzle::EvaluateScoreForState(x);
+            int y_score = Puzzle::EvaluateScoreForState(y);
+            
+            return x_score > y_score;
+        }
+        
     public:
         HillClimbingSearch(PuzzleState * initial_state);
         std::vector<PuzzleState *> DoSearch();

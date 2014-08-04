@@ -14,7 +14,18 @@
 namespace eightPuzzle {
     
     class AStarSearch : public SearchBase
-    {   
+    {
+    private:
+        void OrderByHeuristicDecreasing(std::vector<PuzzleState *> & states);
+        
+        inline static bool CompareHeuristicDecreasing(PuzzleState * x, PuzzleState * y)
+        {
+            long x_heuristic = Puzzle::EvaluateHeuristicForState(x);
+            long y_heuristic = Puzzle::EvaluateHeuristicForState(y);
+            
+            return x_heuristic > y_heuristic;
+        }
+        
     public:
         AStarSearch(PuzzleState * initial_state);
         std::vector<PuzzleState *> DoSearch();

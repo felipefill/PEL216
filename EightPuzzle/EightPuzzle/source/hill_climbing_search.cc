@@ -43,7 +43,7 @@ namespace eightPuzzle
             std::vector<PuzzleState *> children = current_state->Children();
             
             if (children.size() > 0) {
-                Puzzle::OrderByScoreDecreasing(children);
+                OrderByScoreDecreasing(children);
                 
                 if (!ArrayContainsState(visited_states, children.at(0))) {
                     states_to_visit.Push(children.at(0));
@@ -54,6 +54,11 @@ namespace eightPuzzle
         }
         
         return std::vector<PuzzleState *>();
+    }
+    
+    void HillClimbingSearch::OrderByScoreDecreasing(std::vector<PuzzleState *> & states)
+    {
+        std::sort(states.begin(), states.end(), HillClimbingSearch::CompareScoreDecreasing);
     }
     
 }

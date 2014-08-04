@@ -16,32 +16,7 @@
 namespace eightPuzzle
 {
     class Puzzle
-    {
-      private:
-        inline static bool CompareScoreAscending(PuzzleState * x, PuzzleState * y)
-        {
-            int x_score = Puzzle::EvaluateScoreForState(x);
-            int y_score = Puzzle::EvaluateScoreForState(y);
-            
-            return x_score < y_score;
-        }
-        
-        inline static bool CompareScoreDecreasing(PuzzleState * x, PuzzleState * y)
-        {
-            int x_score = Puzzle::EvaluateScoreForState(x);
-            int y_score = Puzzle::EvaluateScoreForState(y);
-            
-            return x_score > y_score;
-        }
-        
-        inline static bool CompareHeuristicDecreasing(PuzzleState * x, PuzzleState * y)
-        {
-            int x_heuristic = Puzzle::EvaluateHeuristicForState(x);
-            int y_heuristic = Puzzle::EvaluateHeuristicForState(y);
-            
-            return x_heuristic > y_heuristic;
-        }
-        
+    {        
       public:
         static PuzzleState * GenerateRandomState();
         static PuzzleState * GenerateEasyInitialState();
@@ -50,10 +25,6 @@ namespace eightPuzzle
         
         static int EvaluateScoreForState(PuzzleState * state);
         static long EvaluateHeuristicForState(PuzzleState * state);
-        
-        static void OrderByScoreAscending(std::vector<PuzzleState *> & states);
-        static void OrderByScoreDecreasing(std::vector<PuzzleState *> & states);
-        static void OrderByHeuristicDecreasing(std::vector<PuzzleState *> & states);
     };
 }
 

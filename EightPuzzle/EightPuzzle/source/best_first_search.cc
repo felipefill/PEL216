@@ -53,11 +53,16 @@ namespace eightPuzzle
                 }
             }
             
-            Puzzle::OrderByScoreAscending(states_to_visit);
+            OrderByScoreAscending(states_to_visit);
             
         }
         
         return std::vector<PuzzleState *>();
+    }
+    
+    void BestFirstSearch::OrderByScoreAscending(std::vector<PuzzleState *> & states)
+    {
+        std::sort(states.begin(), states.end(), BestFirstSearch::CompareScoreAscending);
     }
     
 }

@@ -52,10 +52,15 @@ namespace eightPuzzle
                 }
             }
             
-            Puzzle::OrderByHeuristicDecreasing(states_to_visit);
+            OrderByHeuristicDecreasing(states_to_visit);
         }
         
         return std::vector<PuzzleState *>();
+    }
+    
+    void AStarSearch::OrderByHeuristicDecreasing(std::vector<PuzzleState *> & states)
+    {
+        std::sort(states.begin(), states.end(), AStarSearch::CompareHeuristicDecreasing);
     }
     
 }
