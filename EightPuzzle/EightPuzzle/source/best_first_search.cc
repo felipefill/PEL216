@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
+#include <algorithm>
 #include "../include/best_first_search.h"
 #include "../include/stack.h"
 

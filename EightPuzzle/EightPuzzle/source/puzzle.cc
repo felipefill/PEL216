@@ -6,21 +6,15 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
-#include "puzzle.h"
+#include <algorithm>
+#include "../include/puzzle.h"
 
 namespace eightPuzzle
 {
-    class Random {
-    public:
-        Random(){
-            srand( static_cast<unsigned int>(time(NULL)));
-        }
-        
-        unsigned int operator()(unsigned int max){
-            double tmp = static_cast<double>( rand() ) / static_cast<double>( RAND_MAX );
-            return static_cast<unsigned int>( tmp * max );
-        }
-    };
+	unsigned int Random(unsigned int max){
+		double tmp = static_cast<double>( rand() ) / static_cast<double>( RAND_MAX );
+		return static_cast<unsigned int>( tmp * max );
+	}
     
     PuzzleState * Puzzle::GenerateRandomState()
     {
@@ -31,7 +25,7 @@ namespace eightPuzzle
             available_values.push_back(i);
         }
         
-        std::random_shuffle(available_values.begin(), available_values.end(), Random());
+        std::random_shuffle(available_values.begin(), available_values.end(), Random);
         
         int square_capacity = sqrt(kPuzzleSize);
         int random_value_position = 0;

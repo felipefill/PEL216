@@ -23,7 +23,7 @@ namespace eightPuzzle
 	class SquareMatrix
 	{
 	  private:
-        std::vector<Line<T>> elements_;
+        std::vector< Line<T> > elements_;
 		int capacity_;
         int square_capacity_;
 

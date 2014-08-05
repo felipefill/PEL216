@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
+#include <algorithm>
 #include "../include/a_star_search.h"
 
 namespace eightPuzzle
