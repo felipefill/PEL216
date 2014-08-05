@@ -23,8 +23,6 @@ namespace eightPuzzle
         to_expand.Push(initial_state());
         visited_states.push_back(initial_state());
         
-        long runs = 0;
-        
         PuzzleState * current_element;
         while (!to_expand.IsEmpty()) {
             current_element = to_expand.Pop();
@@ -42,10 +40,6 @@ namespace eightPuzzle
                 else {
                     delete children.at(i);
                 }
-            }
-            
-            if (runs++ % 1000 == 0) {
-                //std::cout << "Run no: " << runs-1 << std::endl;
             }
         }
         

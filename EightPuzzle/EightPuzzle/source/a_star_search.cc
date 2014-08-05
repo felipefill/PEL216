@@ -23,18 +23,10 @@ namespace eightPuzzle
         states_to_visit.push_back(initial_state());
         visited_states.push_back(initial_state());
         
-        long lowest_score = 1000000;
-        
         PuzzleState * current_state;
         while (!states_to_visit.empty()) {
             current_state = states_to_visit.back();
             states_to_visit.pop_back();
-            
-            long score = EvaluateHeuristicForState(current_state);
-            if (score < lowest_score) {
-                lowest_score = score;
-                //std::cout << "LOWEST HEURISTIC: " << lowest_score << std::endl;
-            }
             
             if (*current_state == *goal_state()) {
                 return current_state->BuildPathToRoot();

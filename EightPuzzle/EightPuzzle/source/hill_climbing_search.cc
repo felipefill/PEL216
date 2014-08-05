@@ -24,17 +24,9 @@ namespace eightPuzzle
         states_to_visit.Push(initial_state());
         visited_states.push_back(initial_state());
         
-        int highest_score = 0;
-        
         PuzzleState * current_state;
         while (!states_to_visit.IsEmpty()) {
             current_state = states_to_visit.Pop();
-            
-            int score = EvaluateScoreForState(current_state);
-            if (score > highest_score) {
-                highest_score = score;
-                //std::cout << "HIGHEST SCORE: " << highest_score << std::endl;
-            }
             
             if (*current_state == *goal_state()) {
                 return current_state->BuildPathToRoot();

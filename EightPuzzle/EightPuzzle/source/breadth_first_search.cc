@@ -23,7 +23,6 @@ namespace eightPuzzle {
         states_to_expand.QueueItem(initial_state());
 
         PuzzleState * current_element;
-        long runs = 0;
         while (!states_to_expand.IsEmpty()) {
             
             current_element = states_to_expand.DequeueItem();
@@ -42,10 +41,6 @@ namespace eightPuzzle {
                 else {
                     delete children.at(i);
                 }
-            }
-            
-            if (runs++ % 1000 == 0) {
-                //std::cout << "Run no: " << runs-1 << std::endl;
             }
         }
         
