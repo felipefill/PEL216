@@ -33,7 +33,7 @@ namespace eightPuzzle
             
             std::vector<PuzzleState *> children = current_state->Children();
             
-            for (int i = 0; i < children.size(); i++) {
+            for (size_t i = 0; i < children.size(); i++) {
                 if (!ArrayContainsState(visited_states, children.at(i))) {
                     states_to_visit.push_back(children.at(i));
                     visited_states.push_back(children.at(i));
