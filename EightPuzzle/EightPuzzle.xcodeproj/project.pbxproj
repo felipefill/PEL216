@@ -37,7 +37,6 @@
 		3E071DF7197C7F9300BDCC51 /* puzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puzzle.h; sourceTree = "<group>"; };
 		3E071DF8197C7F9300BDCC51 /* puzzle_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puzzle_state.h; sourceTree = "<group>"; };
 		3E071DF9197C7F9300BDCC51 /* square_matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = square_matrix.h; sourceTree = "<group>"; };
-		3E071DFA197C7F9300BDCC51 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
 		3E071DFC197C7F9300BDCC51 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
 		3E071DFE197DB12900BDCC51 /* puzzle_operations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = puzzle_operations.h; sourceTree = "<group>"; };
 		3E071E00197DB4E800BDCC51 /* puzzle_state.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = puzzle_state.cc; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		3E80DBBA198D3BCB004B809D /* queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 		3E8453E6199054B10060E224 /* heuristic_search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = heuristic_search.h; sourceTree = "<group>"; };
 		3E8453E71990554D0060E224 /* heuristic_search.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = heuristic_search.cc; sourceTree = "<group>"; };
+		3E8453E919905B6C0060E224 /* line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = line.h; sourceTree = "<group>"; };
 		3EAD891C198F076900BDB87E /* depth_first_search.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = depth_first_search.cc; sourceTree = "<group>"; };
 		3EAD891E198F08E800BDB87E /* invalid_operation_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = invalid_operation_exception.h; sourceTree = "<group>"; };
 		3EAD891F198F0AD400BDB87E /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
@@ -104,8 +104,8 @@
 		3E25706E198D322E00D183A5 /* matrix */ = {
 			isa = PBXGroup;
 			children = (
+				3E8453E919905B6C0060E224 /* line.h */,
 				3E071DF9197C7F9300BDCC51 /* square_matrix.h */,
-				3E071DFA197C7F9300BDCC51 /* vector.h */,
 				3E071E03197DBCBC00BDCC51 /* element_position.h */,
 			);
 			name = matrix;
