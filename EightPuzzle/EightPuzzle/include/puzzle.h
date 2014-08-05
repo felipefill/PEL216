@@ -9,14 +9,13 @@
 #ifndef PUZZLE_H_
 #define PUZZLE_H_
 
-#include <cstdlib>
 #include <iostream>
 #include "puzzle_state.h"
 
 namespace eightPuzzle
 {
     class Puzzle
-    {        
+    {
       public:
         static PuzzleState * GenerateRandomState();
         static PuzzleState * GenerateEasyInitialState();

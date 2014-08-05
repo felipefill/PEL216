@@ -6,14 +6,7 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
-#include <algorithm>
-#include <vector>
-#include <ctime>
-#include <cstdlib>
-#include <iostream>
-
 #include "puzzle.h"
-#include "puzzle_state.h"
 
 namespace eightPuzzle
 {

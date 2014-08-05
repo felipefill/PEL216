@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
-#include "../include/search_base.h"
 #include "../include/not_implemented_exception.h"
+#include "../include/search_base.h"
 
 namespace eightPuzzle {
     

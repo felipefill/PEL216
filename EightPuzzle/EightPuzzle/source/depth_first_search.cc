@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
-#include <iostream>
 #include "../include/depth_first_search.h"
 #include "../include/stack.h"
 

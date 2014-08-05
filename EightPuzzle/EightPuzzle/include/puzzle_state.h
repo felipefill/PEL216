@@ -10,9 +10,9 @@
 #define PUZZLESTATE_H_
 
 #include "constants.h"
-#include "square_matrix.h"
-#include "puzzle_operations.h"
 #include "element_position.h"
+#include "puzzle_operations.h"
+#include "square_matrix.h"
 
 namespace eightPuzzle
 {

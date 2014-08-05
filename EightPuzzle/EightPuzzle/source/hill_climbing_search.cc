@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
-#include <iostream>
 #include "../include/puzzle.h"
 #include "../include/stack.h"
 #include "../include/hill_climbing_search.h"

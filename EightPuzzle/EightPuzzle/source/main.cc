@@ -6,15 +6,6 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
-#include <iostream>
-#include <cstdlib>
-#include <exception>
-#include <thread>         // std::this_thread::sleep_for
-#include <chrono>         // std::chrono::seconds
-
-#include "square_matrix.h"
-#include "puzzle_state.h"
-#include "puzzle.h"
 #include "../include/best_first_search.h"
 #include "../include/breadth_first_search.h"
 #include "../include/depth_first_search.h"

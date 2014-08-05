@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Felipe Fill. All rights reserved.
 //
 
-#include <iostream>
 #include "../include/breadth_first_search.h"
 #include "../include/queue.h"
 
