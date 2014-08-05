@@ -102,12 +102,12 @@ namespace eightPuzzle {
         return result;
     }
     
-    Vector<int> PuzzleState::operator [] (int index) const
+    Line<int> PuzzleState::operator [] (int index) const
     {
         return state_[index];
     }
     
-    Vector<int> & PuzzleState::operator [] (int index)
+    Line<int> & PuzzleState::operator [] (int index)
     {
         return state_[index];
     }

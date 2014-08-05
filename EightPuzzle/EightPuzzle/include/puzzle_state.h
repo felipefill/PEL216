@@ -38,8 +38,8 @@ namespace eightPuzzle
         
         bool operator == (PuzzleState & p);
         PuzzleState * operator + (PuzzleOperations operation);
-        Vector<int> operator [] (int index) const;
-        Vector<int> & operator [] (int index);
+        Line<int> operator [] (int index) const;
+        Line<int> & operator [] (int index);
         
         int capacity();
         int square_capacity();

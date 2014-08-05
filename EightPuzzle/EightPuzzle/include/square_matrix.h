@@ -9,7 +9,7 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
-#include "vector.h"
+#include "line.h"
 #include <cmath>
 
 namespace eightPuzzle
@@ -23,7 +23,7 @@ namespace eightPuzzle
 	class SquareMatrix
 	{
 	  private:
-        std::vector<Vector<T>> elements_;
+        std::vector<Line<T>> elements_;
 		int capacity_;
         int square_capacity_;
 
@@ -36,24 +36,16 @@ namespace eightPuzzle
 			elements_.reserve(square_capacity());
 
 			for (int i = 0; i < square_capacity(); i++) {
-				elements_.push_back(Vector<T>(square_capacity()));
+				elements_.push_back(Line<T>(square_capacity()));
 			}
 		}
 
-//		~SquareMatrix()
-//		{
-//            if (elements_ != nullptr) {
-//                delete[] elements_;
-//                elements_ = nullptr;
-//            }
-//		}
-
-		Vector<T> operator[] (int index) const
+		Line<T> operator[] (int index) const
 		{
 			return elements_[index];
 		}
 
-		Vector<T> & operator[] (int index)
+		Line<T> & operator[] (int index)
 		{
 			return elements_[index];
 		}
