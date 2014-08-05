@@ -1,5 +1,5 @@
 //
-//  invalid_opeartion.h
+//  invalid_operation.h
 //  EightPuzzle
 //
 //  Created by Felipe Fill Cardoso on 7/21/14.

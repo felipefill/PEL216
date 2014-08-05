@@ -21,9 +21,6 @@ namespace eightPuzzle
         static PuzzleState * GenerateEasyInitialState();
         static PuzzleState * GenerateTestInitialState();
         static PuzzleState * GenerateGoalState();
-        
-        static int EvaluateScoreForState(PuzzleState * state);
-        static long EvaluateHeuristicForState(PuzzleState * state);
     };
 }
 
