@@ -1,7 +1,7 @@
 #include <iostream>
-#include "circle.h"
-#include "triangle.h"
-#include "shape.h"
+#include "include/circle.h"
+#include "include/triangle.h"
+#include "include/shape.h"
 
 using namespace std;
 

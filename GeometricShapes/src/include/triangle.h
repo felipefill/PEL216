@@ -8,7 +8,7 @@
 #ifndef TRIANGLE_H_
 #define TRIANGLE_H_
 
-#include <array>
+#include <vector>
 #include "shape.h"
 
 #define kNumberOfAngles 3
@@ -17,7 +17,7 @@ class Triangle : public Shape
 {
 private:
 	std::vector<double> sides_;
-	std::array<double, kNumberOfAngles> angles_;
+	std::vector<double> angles_;
 	double height_;
 
 	void CalcTriangle();

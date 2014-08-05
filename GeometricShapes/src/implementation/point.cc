@@ -1,5 +1,5 @@
-#include "point.h"
-#include "math.h"
+#include "../include/point.h"
+#include "../include/math.h"
 
 Point::Point()
 {

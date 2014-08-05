@@ -1,8 +1,8 @@
 #include <cmath>
 #include <iostream>
-#include "triangle.h"
-#include "points_overflow_exception.h"
-#include "not_enough_points_exception.h"
+#include "../include/triangle.h"
+#include "../include/points_overflow_exception.h"
+#include "../include/not_enough_points_exception.h"
 
 using namespace std;
 
@@ -16,6 +16,7 @@ using namespace std;
 Triangle::Triangle()
 {
 	height_ = 0;
+	angles_.reserve(3);
 }
 
 /***
@@ -83,20 +84,21 @@ void Triangle::Print() const
 		cout << "I'm a triangle, I have " << NumberOfSides() << " sides!" << endl;
 
 		cout << "\nThe points that compose me are: " << endl;
-		for (int i = 0; i < points().size(); i++) {
+		for (int i = 0; i < (int)points().size(); i++) {
 			cout << "P" << i+1 << " = (" << points().at(i).x() << ", "<< points().at(1).y() << ")" << endl;
 		}
 
 		cout << "\nMy side's measures are:" << endl;
-		for (int i = 0; i < sides_.size(); i++) {
+		for (int i = 0; i < (int)sides_.size(); i++) {
 			char measureId = MINUSCULE_A_ASCII_CODE + i;
 			cout << measureId << " = " << sides_.at(i) << endl;
 		}
 
 		cout << "\nMy angles are:" << endl;
-		for (int i = 0; i < angles_.size(); i++) {
+		for (int i = 0; i < (int)angles_.size() ; i++) {
 			char angleId = CAPITAL_A_ASCII_CODE + i;
-			cout << angleId << " = " << angles_.at(i) << endl;
+			cout << angleId << " = " << angles_[i];
+			cout << endl;
 		}
 
 		cout << "I have a height of " << Height() << endl;

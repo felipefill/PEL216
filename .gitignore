@@ -36,3 +36,6 @@ build-*
 # X-Code
 xcshareddata/
 xcuserdata/
+
+# Eclipse
+.settings/

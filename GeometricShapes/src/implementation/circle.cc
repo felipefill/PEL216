@@ -1,8 +1,8 @@
 #include <cmath>
 #include <iostream>
-#include "circle.h"
-#include "points_overflow_exception.h"
-#include "not_enough_points_exception.h"
+#include "../include/circle.h"
+#include "../include/points_overflow_exception.h"
+#include "../include/not_enough_points_exception.h"
 
 using namespace std;
 

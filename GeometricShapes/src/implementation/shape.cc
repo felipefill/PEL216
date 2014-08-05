@@ -1,6 +1,6 @@
 #include <iostream>
-#include "shape.h"
-#include "not_implemented_yet_exception.h"
+#include "../include/shape.h"
+#include "../include/not_implemented_yet_exception.h"
 
 using namespace std;
 
