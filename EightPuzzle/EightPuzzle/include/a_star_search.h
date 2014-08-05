@@ -9,19 +9,19 @@
 #ifndef EightPuzzle_a_star_search_h
 #define EightPuzzle_a_star_search_h
 
-#include "search_base.h"
+#include "heuristic_search.h"
 
 namespace eightPuzzle {
     
-    class AStarSearch : public SearchBase
+    class AStarSearch : public HeuristicSearch
     {
     private:
         void OrderByHeuristicDecreasing(std::vector<PuzzleState *> & states);
         
         inline static bool CompareHeuristicDecreasing(PuzzleState * x, PuzzleState * y)
         {
-            long x_heuristic = Puzzle::EvaluateHeuristicForState(x);
-            long y_heuristic = Puzzle::EvaluateHeuristicForState(y);
+            long x_heuristic = EvaluateHeuristicForState(x);
+            long y_heuristic = EvaluateHeuristicForState(y);
             
             return x_heuristic > y_heuristic;
         }

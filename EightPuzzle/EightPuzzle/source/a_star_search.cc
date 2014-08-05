@@ -13,7 +13,7 @@
 namespace eightPuzzle
 {
 
-    AStarSearch::AStarSearch(PuzzleState * initial_state) : SearchBase(initial_state) { }
+    AStarSearch::AStarSearch(PuzzleState * initial_state) : HeuristicSearch(initial_state) { }
     
     std::vector<PuzzleState *> AStarSearch::DoSearch()
     {
@@ -30,7 +30,7 @@ namespace eightPuzzle
             current_state = states_to_visit.back();
             states_to_visit.pop_back();
             
-            long score = Puzzle::EvaluateHeuristicForState(current_state);
+            long score = EvaluateHeuristicForState(current_state);
             if (score < lowest_score) {
                 lowest_score = score;
                 //std::cout << "LOWEST HEURISTIC: " << lowest_score << std::endl;

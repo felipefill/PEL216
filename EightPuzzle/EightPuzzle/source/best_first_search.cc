@@ -14,7 +14,7 @@
 namespace eightPuzzle
 {
     
-    BestFirstSearch::BestFirstSearch(PuzzleState * initial_state) : SearchBase(initial_state) { }
+    BestFirstSearch::BestFirstSearch(PuzzleState * initial_state) : HeuristicSearch(initial_state) { }
     
     std::vector<PuzzleState *> BestFirstSearch::DoSearch()
     {
@@ -31,7 +31,7 @@ namespace eightPuzzle
             current_state = states_to_visit.back();
             states_to_visit.pop_back();
             
-            int score = Puzzle::EvaluateScoreForState(current_state);
+            int score = EvaluateScoreForState(current_state);
             if (score > highest_score) {
                 highest_score = score;
                 //std::cout << "HIGHEST SCORE: " << highest_score << std::endl;

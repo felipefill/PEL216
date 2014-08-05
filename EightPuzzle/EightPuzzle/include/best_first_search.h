@@ -9,19 +9,19 @@
 #ifndef EightPuzzle_best_first_search_h
 #define EightPuzzle_best_first_search_h
 
-#include "search_base.h"
+#include "heuristic_search.h"
 
 namespace eightPuzzle {
     
-    class BestFirstSearch : public SearchBase
+    class BestFirstSearch : public HeuristicSearch
     {
       private:
         void OrderByScoreAscending(std::vector<PuzzleState *> & states);
         
         inline static bool CompareScoreAscending(PuzzleState * x, PuzzleState * y)
         {
-            int x_score = Puzzle::EvaluateScoreForState(x);
-            int y_score = Puzzle::EvaluateScoreForState(y);
+            int x_score = EvaluateScoreForState(x);
+            int y_score = EvaluateScoreForState(y);
             
             return x_score < y_score;
         }

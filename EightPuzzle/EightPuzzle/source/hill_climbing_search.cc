@@ -14,7 +14,7 @@
 namespace eightPuzzle
 {
     
-    HillClimbingSearch::HillClimbingSearch(PuzzleState * initial_state) : SearchBase(initial_state) { }
+    HillClimbingSearch::HillClimbingSearch(PuzzleState * initial_state) : HeuristicSearch(initial_state) { }
     
     std::vector<PuzzleState *> HillClimbingSearch::DoSearch()
     {
@@ -30,7 +30,7 @@ namespace eightPuzzle
         while (!states_to_visit.IsEmpty()) {
             current_state = states_to_visit.Pop();
             
-            int score = Puzzle::EvaluateScoreForState(current_state);
+            int score = EvaluateScoreForState(current_state);
             if (score > highest_score) {
                 highest_score = score;
                 //std::cout << "HIGHEST SCORE: " << highest_score << std::endl;

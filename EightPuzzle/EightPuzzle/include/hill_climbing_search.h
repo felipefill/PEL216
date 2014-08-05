@@ -9,19 +9,19 @@
 #ifndef EightPuzzle_hill_climbing_search_h
 #define EightPuzzle_hill_climbing_search_h
 
-#include "search_base.h"
+#include "heuristic_search.h"
 
 namespace eightPuzzle {
     
-    class HillClimbingSearch : public SearchBase
+    class HillClimbingSearch : public HeuristicSearch
     {
     private:
         void OrderByScoreDecreasing(std::vector<PuzzleState *> & states);
         
         inline static bool CompareScoreDecreasing(PuzzleState * x, PuzzleState * y)
         {
-            int x_score = Puzzle::EvaluateScoreForState(x);
-            int y_score = Puzzle::EvaluateScoreForState(y);
+            int x_score = EvaluateScoreForState(x);
+            int y_score = EvaluateScoreForState(y);
             
             return x_score > y_score;
         }
