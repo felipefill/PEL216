@@ -20,7 +20,7 @@ class GradientDescent
 	double DerivatedFunctionOn(double x);
   public:
 	GradientDescent(std::vector<int> function, double initial_value);
-	double calculate();
+	double Calculate();
 };
 
 #endif /* GRADIENT_DESCENT_H_ */

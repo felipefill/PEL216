@@ -14,14 +14,21 @@ using namespace std;
 int main(void)
 {
 	std::vector<int> function;
-	function.push_back(2);
+
+	// x^3 - 2 * x^2 + 2
+//	function.push_back(2);
+//	function.push_back(0);
+//	function.push_back(-2);
+//	function.push_back(1);
+
+	// x^2
 	function.push_back(0);
-	function.push_back(-2);
+	function.push_back(0);
 	function.push_back(1);
 
 	GradientDescent grad = GradientDescent(function, 2);
 
-	cout << "Result: " << grad.calculate() << endl;
+	cout << "Result: " << grad.Calculate() << endl;
 
 	return 0;
 }
