@@ -7,6 +7,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <exception>
 #include "../include/gradient_descent.h"
 
 using namespace std;
@@ -48,16 +49,15 @@ double GradientDescent::DerivatedFunctionOn(double x)
 	return result;
 }
 
-double GradientDescent::Calculate()
+double GradientDescent::Calculate(double g, double learning_factor, long max_iterations)
 {
-	double g = 0.0f; //TODO: actually receive a g value
-	double learning_factor = 0.1f; //TODO: actually receive a learning factor
-
 	double x0 = initial_value_;
 	double f0 = F(x0);
 
 	double xi = x0;
 	double fi = f0;
+
+	long current_iteration = 0;
 
 	while (!(fi > -0.00001f  && fi < 0.00001f)) {
 		double si = DerivatedFunctionOn(xi);
@@ -66,6 +66,10 @@ double GradientDescent::Calculate()
 
 		fi = F(xi_plus_1);
 		xi = xi_plus_1;
+
+		if (current_iteration++ == max_iterations) {
+			throw exception();
+		}
 	}
 
 	return xi;
