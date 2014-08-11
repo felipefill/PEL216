@@ -5,18 +5,23 @@
  *      Author: felipefill
  */
 
+
+#include <iostream>
 #include "include/gradient_descent.h"
+
+using namespace std;
 
 int main(void)
 {
 	std::vector<int> function;
+	function.push_back(2);
 	function.push_back(0);
-	function.push_back(0);
+	function.push_back(-2);
 	function.push_back(1);
 
 	GradientDescent grad = GradientDescent(function, 2);
 
-	grad.calculate();
+	cout << "Result: " << grad.calculate() << endl;
 
 	return 0;
 }

@@ -22,7 +22,8 @@ double GradientDescent::F(double x)
 	double result = 0.0f;
 
 	for (int i = function_.size() - 1; i >= 0; --i) {
-		result += function_.at(i) * pow(x, i);
+		double partial = function_.at(i) * pow(x, i);
+		result += partial;
 	}
 
 	return result;
@@ -30,7 +31,8 @@ double GradientDescent::F(double x)
 
 double GradientDescent::DerivatedFunctionOn(double x)
 {
-	return 2 * x;
+	//return 2 * x;
+	return 3 * pow(x, 2) - 4 * x;
 }
 
 double GradientDescent::calculate()
@@ -44,7 +46,7 @@ double GradientDescent::calculate()
 	double xi = x0;
 	double fi = f0;
 
-	while (fi != g) {
+	while (!(fi > -0.00001f  && fi < 0.00001f)) {
 		double si = DerivatedFunctionOn(xi);
 
 		double xi_plus_1 = xi + learning_factor * (g - fi)/si;
@@ -52,10 +54,12 @@ double GradientDescent::calculate()
 		fi = F(xi_plus_1);
 		xi = xi_plus_1;
 
-		cout << fi << endl;
+		//cout << fi << endl;
 	}
 
-	return 0.0f;
+	cout << F(xi) << endl;
+
+	return xi;
 }
 
 
