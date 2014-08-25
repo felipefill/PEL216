@@ -10,13 +10,30 @@
 
 #include "numerical_integration_algorithm.h"
 
+enum NewtonCotesIntegrationType
+{
+	kMidPointRule,
+	kTrapezoidRule,
+	kSimpsonRule
+};
+
+
 class NewtonCotes : public NumericalIntegrationBase
 {
-public:
-	NewtonCotes(double (*function)(double), float interval_begin, float interval_end, int slicing)
-		: NumericalIntegrationBase(function, interval_begin, interval_end, slicing) { }
+private:
+	NewtonCotesIntegrationType integration_type_;
 
+	double MidPointIntegration();
+	double TrapezoidIntegration();
+	double SimpsonIntegration();
+
+public:
+	NewtonCotes(double (*function)(double), float interval_begin, float interval_end, int slicing);
+	~NewtonCotes() { }
 	double Integrate();
+
+	inline NewtonCotesIntegrationType integration_type() const { return integration_type_; }
+	inline void set_integration_type (NewtonCotesIntegrationType type) { integration_type_ = type; }
 };
 
 
