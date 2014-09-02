@@ -9,6 +9,7 @@
 #include <cmath>
 #include <string>
 #include "../include/newton_cotes.h"
+#include "../include/adaptive_quadrature.h"
 
 using namespace std;
 
@@ -90,11 +91,31 @@ void Print(const char * title, double (*function)(double), double (*second_deriv
 	cout << "Error: " << newton_cotes.ErrorWithDerivative(fourth_derivative) << endl;
 }
 
+void PrintAdaptive(const char * title, double (*function)(double))
+{
+	AdaptiveQuadrature quadrature = AdaptiveQuadrature(function, 0.0f, 1.0f);
+
+	cout << "\n\n\n" << title << endl;
+
+	quadrature.set_integration_type(kMidPointRule);
+	cout << "MidPoint: " << quadrature.Integrate() << endl;
+
+	quadrature.set_integration_type(kTrapezoidRule);
+	cout << "Trapezoid: " << quadrature.Integrate() << endl;
+
+	quadrature.set_integration_type(kSimpsonRule);
+	cout << "Simpson: " << quadrature.Integrate() << endl;
+}
+
 int main(void)
 {
 	Print("Exercicio A", FunctionExercA, FunctionExercANDerivative, FunctionExercANDerivative);
 	Print("Exercicio B", FunctionExercB, FunctionExercBSecondDerivative, FunctionExercBFourthDerivative);
-	Print("Exercicio C", FunctionExercB, FunctionExercCSecondDerivative, FunctionExercCFourthDerivative);
+	Print("Exercicio C", FunctionExercC, FunctionExercCSecondDerivative, FunctionExercCFourthDerivative);
+
+	PrintAdaptive("Exercicio A", FunctionExercA);
+	PrintAdaptive("Exercicio B", FunctionExercB);
+	PrintAdaptive("Exercicio C", FunctionExercC);
 
 	return 0;
 }

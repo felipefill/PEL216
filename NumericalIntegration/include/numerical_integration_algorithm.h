@@ -11,7 +11,7 @@
 
 class NumericalIntegrationBase
 {
-private:
+protected:
 	float interval_begin_;
 	float interval_end_;
 	int slicing_;

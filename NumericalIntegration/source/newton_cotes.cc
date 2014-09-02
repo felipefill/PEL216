@@ -10,29 +10,6 @@
 #include <exception>
 #include "../include/newton_cotes.h"
 
-/*
- * Exercicio A
-MidPoint: 1.71757
-Trapezoid: 1.71971
-Simpson: 1.71828
-
-
-
-Exercicio B
-MidPoint: 0.788103
-Trapezoid: 0.77613
-Simpson: 0.784112
-
-
-
-Exercicio C
-MidPoint: 0.747131
-Trapezoid: 0.746211
-Simpson: 0.746824
- *
- *
- */
-
 NewtonCotes::NewtonCotes(double (*function)(double), float interval_begin, float interval_end, int slicing)
 	: NumericalIntegrationBase(function, interval_begin, interval_end, slicing)
 {
