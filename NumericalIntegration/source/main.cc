@@ -97,11 +97,11 @@ void PrintAdaptive(const char * title, double (*function)(double))
 
 	cout << "\n\n\n" << title << endl;
 
-	quadrature.set_integration_type(kMidPointRule);
-	cout << "MidPoint: " << quadrature.Integrate() << endl;
+	//quadrature.set_integration_type(kMidPointRule);
+	//cout << "MidPoint: " << quadrature.Integrate() << endl;
 
-	quadrature.set_integration_type(kTrapezoidRule);
-	cout << "Trapezoid: " << quadrature.Integrate() << endl;
+	//quadrature.set_integration_type(kTrapezoidRule);
+	//cout << "Trapezoid: " << quadrature.Integrate() << endl;
 
 	quadrature.set_integration_type(kSimpsonRule);
 	cout << "Simpson: " << quadrature.Integrate() << endl;
@@ -109,15 +109,22 @@ void PrintAdaptive(const char * title, double (*function)(double))
 
 int main(void)
 {
-	Print("Exercicio A", FunctionExercA, FunctionExercANDerivative, FunctionExercANDerivative);
-	Print("Exercicio B", FunctionExercB, FunctionExercBSecondDerivative, FunctionExercBFourthDerivative);
-	Print("Exercicio C", FunctionExercC, FunctionExercCSecondDerivative, FunctionExercCFourthDerivative);
+	//Print("Exercicio A", FunctionExercA, FunctionExercANDerivative, FunctionExercANDerivative);
+	//Print("Exercicio B", FunctionExercB, FunctionExercBSecondDerivative, FunctionExercBFourthDerivative);
+	//Print("Exercicio C", FunctionExercC, FunctionExercCSecondDerivative, FunctionExercCFourthDerivative);
 
 	PrintAdaptive("Exercicio A", FunctionExercA);
-	PrintAdaptive("Exercicio B", FunctionExercB);
-	PrintAdaptive("Exercicio C", FunctionExercC);
+	//PrintAdaptive("Exercicio B", FunctionExercB);
+	//PrintAdaptive("Exercicio C", FunctionExercC);
 
 	return 0;
 }
+
+/*
+ * Results:
+
+
+
+ */
 
 
