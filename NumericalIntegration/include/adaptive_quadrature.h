@@ -10,8 +10,8 @@
 
 #include "newton_cotes.h"
 
-#define kSlicingStep 2
-#define kSlicingLimit 10000
+#define kSlicingStep 100
+#define kSlicingLimit 1000000
 
 class AdaptiveQuadrature : public NewtonCotes
 {

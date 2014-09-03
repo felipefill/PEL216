@@ -11,7 +11,7 @@
 AdaptiveQuadrature::AdaptiveQuadrature(double (*function)(double), float interval_begin, float interval_end)
 	: NewtonCotes(function, interval_begin, interval_end, 1000)
 {
-	set_threshold(pow(10, -13));
+	set_threshold(pow(10, -10));
 }
 
 double AdaptiveQuadrature::Integrate()
@@ -24,7 +24,7 @@ double AdaptiveQuadrature::Integrate()
 	double result_old = NewtonCotes::Integrate();
 
 	do {
-		slicing_ *= kSlicingStep;
+		slicing_ += kSlicingStep;
 
 		result = NewtonCotes::Integrate();
 		error = fabs(result - result_old);
@@ -32,5 +32,5 @@ double AdaptiveQuadrature::Integrate()
 
 	} while(error > threshold() && slicing() < kSlicingLimit);
 
-	return slicing() < kSlicingLimit ? 0 : result;
+	return slicing() < kSlicingLimit ? result : 0;
 }
