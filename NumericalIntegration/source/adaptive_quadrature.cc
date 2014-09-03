@@ -9,7 +9,7 @@
 #include "../include/adaptive_quadrature.h"
 
 AdaptiveQuadrature::AdaptiveQuadrature(double (*function)(double), float interval_begin, float interval_end)
-	: NewtonCotes(function, interval_begin, interval_end, 1000)
+	: NewtonCotes(function, interval_begin, interval_end, 0)
 {
 	set_threshold(pow(10, -10));
 }
