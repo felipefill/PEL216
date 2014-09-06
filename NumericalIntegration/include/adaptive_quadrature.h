@@ -18,8 +18,6 @@ class AdaptiveQuadrature : public NewtonCotes
   private:
 	float threshold_;
 
-	double IntegrateWithInterval(float begin, float end);
-
   public:
 	AdaptiveQuadrature(double (*function)(double), float interval_begin, float interval_end);
 	~AdaptiveQuadrature() { }
