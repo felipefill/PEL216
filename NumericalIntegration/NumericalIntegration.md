@@ -14,40 +14,34 @@ O algoritmo foi implementado com três regras diferentes para o cálculo da apro
 É possível fazer a aproximação através da aplicação do algoritmo com um número predeterminado de intervalos (implementação clássica) e através do método de quadratura adaptativa.
 
 # Estrutura do projeto
-O projeto é composto por três classes: `NumericalIntegrationBase`, `NewtonCotes` e `AdaptiveQuadrature`. Elas possuem uma relação de herança entre si, sendo que a primeira é a base para a segunda, e a segunda para a terceira. É possível observar essa relação no diagrama de classes.
+O projeto é composto por três classes: `NumericalIntegrationBase`, `NewtonCotes` e `AdaptiveQuadrature`. Elas possuem uma relação de herança entre si, sendo que a primeira é a base para a segunda e ela para a terceira. É possível observar essa relação no diagrama de classes.
 
 # Descrição das classes
 
 ## NumericalIntegrationBase
-* `NumericalIntegrationBase(double (*function)(double), float interval_begin, float interval_end, int slicing)`
-* `virtual ~NumericalIntegrationBase()`
-* `virtual double Integrate()`
-* `float interval_begin() const`
-* `float interval_end() const`
-* `int slicing() const`
-* `float step_size() const`
-* `double function (double input) const`
+* `NumericalIntegrationBase(double (*function)(double), float interval_begin, float interval_end, int slicing)`: construtor da classe base, recebe a função a ser integrada, o inicio do intervalo, fim do intervalo e a quantidade de “fatias” em que o intervalo deve ser dividido.
+* `virtual ~NumericalIntegrationBase()`: destrutor virtual da classe base.
+* `virtual double Integrate()`: método virtual que as classes filhas devem implementar para cálculo da integral.
+* `float step_size() const`: devolve o tamanho do passo (subintervalos).
 
 ## NewtonCotes
-* `NewtonCotes(double (*function)(double), float interval_begin, float interval_end, int slicing)`
-* `~NewtonCotes()`
-* `double Integrate()`
-* `double ErrorWithDerivative(double(*derivative)(double))`
-* `double MidPointIntegration()`
-* `double TrapezoidIntegration()`
-* `double SimpsonIntegration()`
-* `double MidPointError(double(*derivative)(double))`
-* `double TrapezoidError(double(*derivative)(double))`
-* `double SimpsonError(double(*derivative)(double))`
-* `NewtonCotesIntegrationType integration_type() const`
-* `void set_integration_type (NewtonCotesIntegrationType type)`
+* `NewtonCotes(double (*function)(double), float interval_begin, float interval_end, int slicing)`: construtor que recebe os mesmos argumentos da classe pai.
+* `~NewtonCotes()`: destrutor da classe.
+* `double Integrate()`: implementação do método de integração (virtual na classe pai).
+* `double ErrorWithDerivative(double(*derivative)(double))`: devolve o erro com a utilização da função derivada informada.
+* `double MidPointIntegration()`: calcula a integral com a regra do ponto médio.
+* `double TrapezoidIntegration()`: calcula a integral com a regra do trapézio.
+* `double SimpsonIntegration()`: calcula a integral com a regra de Simpson.
+* `double MidPointError(double(*derivative)(double))`: calcula o erro da regra do ponto médio.
+* `double TrapezoidError(double(*derivative)(double))`: calcula o erro com a regra do trapézio.
+* `double SimpsonError(double(*derivative)(double))`: calcula o erro com a regra de Simpson.
+* `void set_integration_type (NewtonCotesIntegrationType type)`: configura o tipo de integração (ponto médio, trapézio ou Simpson).
 
 ## AdaptiveQuadrature
-* `AdaptiveQuadrature(double (*function)(double), float interval_begin, float interval_end)`
-* `~AdaptiveQuadrature()`
-* `double Integrate()`
-* `double threshold() const`
-* `void set_threshold(float threshold)`
+* `AdaptiveQuadrature(double (*function)(double), float interval_begin, float interval_end)`: construtor que recebe os mesmos argumentos da classe pai.
+* `~AdaptiveQuadrature()`: destrutor da classe.
+* `double Integrate()`: implementa a integração (sobreescreve o método da classe pai).
+* `void set_threshold(float threshold)`: configura a tolerância do método de integração.
 
 # Resultados
 Resultados apresentados após a execução do algoritmo (código de teste presente em `main.cc`):
