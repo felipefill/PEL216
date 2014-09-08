@@ -31,7 +31,6 @@ class Dataset
 	inline int size() const { return size_; }
 
 	void AddLine(int books, int attends, int grade);
-	vector<int> SortForCombination(int books, int attends);
 };
 
 #endif /* DATASET_H_ */

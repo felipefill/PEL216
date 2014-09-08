@@ -33,4 +33,41 @@ int main(void)
 	return 0;
 }
 
+/*
+  Printing for k = 1
+Books: 0     Attends:     5    Grade Estimation: 61
+Books: 4     Attends:    20    Grade Estimation: 88
+Books: 2     Attends:    10    Grade Estimation: 47
+Books: 4     Attends:    15    Grade Estimation: 89
+
+
+ Printing for k = 2
+Books: 0     Attends:     5    Grade Estimation: 63.5
+Books: 4     Attends:    20    Grade Estimation: 87.5
+Books: 2     Attends:    10    Grade Estimation: 44
+Books: 4     Attends:    15    Grade Estimation: 72
+
+
+ Printing for k = 3
+Books: 0     Attends:     5    Grade Estimation: 61
+Books: 4     Attends:    20    Grade Estimation: 86
+Books: 2     Attends:    10    Grade Estimation: 43.6667
+Books: 4     Attends:    15    Grade Estimation: 71
+
+
+ Printing for k = 5
+Books: 0     Attends:     5    Grade Estimation: 58.8
+Books: 4     Attends:    20    Grade Estimation: 88.8
+Books: 2     Attends:    10    Grade Estimation: 47
+Books: 4     Attends:    15    Grade Estimation: 73.2
+
+
+ Printing for k = 10
+Books: 0     Attends:     5    Grade Estimation: 54.9
+Books: 4     Attends:    20    Grade Estimation: 72.9
+Books: 2     Attends:    10    Grade Estimation: 51.8
+Books: 4     Attends:    15    Grade Estimation: 72.5
+*/
+ */
+
 

@@ -15,6 +15,8 @@ class KNearestNeighbours
   private:
 	Dataset training_set_;
 
+	vector<int> SortForCombination(int books, int attends);
+
   public:
 	KNearestNeighbours(const char * training_set_path);
 	float Estimate(int books, int attends, int k);
