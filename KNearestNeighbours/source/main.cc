@@ -16,8 +16,7 @@ int main(void)
 {
 	KNearestNeighbours knn = KNearestNeighbours(kDatasetPath);
 
-	float estimation = knn.Estimate(0, 5, kK);
-	cout << estimation << endl;
+	cout << knn.Estimate(0, 5, kK) << endl;
 
 	return 0;
 }
