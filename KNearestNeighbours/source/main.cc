@@ -5,18 +5,19 @@
  *      Author: felipe
  */
 
-#include "../include/dataset_reader.h"
+#include "../include/k_nearest_neighbours.h"
 
 #define kDatasetPath "/home/felipe/Development/FEI/PEL216/KNearestNeighbours/resources/Books_attend_grade.dat"
-#define N 5
+#define kK 5
 
 using namespace std;
 
 int main(void)
 {
-	Dataset data = DatasetReader::read(kDatasetPath);
+	KNearestNeighbours knn = KNearestNeighbours(kDatasetPath);
 
-	data.SortForCombination(0, 1);
+	float estimation = knn.Estimate(0, 5, kK);
+	cout << estimation << endl;
 
 	return 0;
 }

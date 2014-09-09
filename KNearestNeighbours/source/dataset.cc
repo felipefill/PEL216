@@ -41,7 +41,7 @@ vector<int> Dataset::SortForCombination(int books, int attends)
 
 	for (int i = 0; i < size() -1; i++) {
 		for (int j = i + 1; j < size(); j++) {
-			if (euclidian_distance.at(indexes.at(i)) < euclidian_distance.at(indexes.at(j))) {
+			if (euclidian_distance.at(indexes.at(i)) > euclidian_distance.at(indexes.at(j))) {
 				int aux = indexes[j];
 				indexes[j] = indexes[i];
 				indexes[i] = aux;
