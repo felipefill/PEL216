@@ -20,8 +20,6 @@ public:
 	~NewtonCotes() { }
 
 	void Integrate();
-
-	double ErrorWithDerivative(double(*derivative)(double));
 };
 
 

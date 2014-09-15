@@ -39,7 +39,7 @@ void NewtonCotes::Integrate()
 
 	if (taskid == MASTER) {
 		cout << "There will be " << numtasks << " tasks." << endl;
-		cout << "Each task is taking up an avearage of " << tasks_per_id << endl;
+		cout << "Each task is taking up an average of " << tasks_per_id << endl;
 	}
 
 	cout << "I am task " << taskid << endl;
