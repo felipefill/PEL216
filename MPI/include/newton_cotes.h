@@ -12,11 +12,15 @@
 
 class NewtonCotes : public NumericalIntegrationBase
 {
+private:
+	double IntegrateInterval(float begin, float end);
+
 public:
 	NewtonCotes(double (*function)(double), float interval_begin, float interval_end, int slicing);
 	~NewtonCotes() { }
 
-	double Integrate();
+	void Integrate();
+
 	double ErrorWithDerivative(double(*derivative)(double));
 };
 

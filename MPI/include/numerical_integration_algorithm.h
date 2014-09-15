@@ -27,7 +27,7 @@ public:
 
 	virtual ~NumericalIntegrationBase() { }
 
-	virtual double Integrate() = 0;
+	virtual void Integrate() = 0;
 
 	inline float interval_begin() const { return interval_begin_; }
 	inline float interval_end() const { return interval_end_; }

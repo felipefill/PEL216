@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include "mpi.h"
 #include "../include/newton_cotes.h"
 
 using namespace std;
@@ -77,15 +78,17 @@ void Print(const char * title, double (*function)(double), double (*second_deriv
 
 	cout << "\n\n\n" << title << endl;
 
-	cout << "MidPoint: " << newton_cotes.Integrate() << endl;
-	cout << "Error: " << newton_cotes.ErrorWithDerivative(second_derivative) << endl;
+	newton_cotes.Integrate();
 }
 
-int main(void)
+int main(int argc, char ** argv)
 {
+	MPI_Init(&argc,&argv);
+
 	Print("Exercicio A", FunctionExercA, FunctionExercANDerivative, FunctionExercANDerivative);
 	Print("Exercicio B", FunctionExercB, FunctionExercBSecondDerivative, FunctionExercBFourthDerivative);
 	Print("Exercicio C", FunctionExercC, FunctionExercCSecondDerivative, FunctionExercCFourthDerivative);
 
+	MPI_Finalize();
 	return 0;
 }
