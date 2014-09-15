@@ -31,17 +31,31 @@ void NewtonCotes::Integrate()
 	double result = 0.0f;
 	int slice = 0;
 
+	MPI_Status status;
 	MPI_Comm_size(MPI_COMM_WORLD,&numtasks);
 	MPI_Comm_rank(MPI_COMM_WORLD,&taskid);
 
 	int tasks_per_id = slicing() / numtasks;
 
-	float previous_step = interval_begin() + (taskid * step_size());
+	if (taskid == MASTER) {
+		cout << "There will be " << numtasks << " tasks." << endl;
+		cout << "Each task is taking up an avearage of " << tasks_per_id << endl;
+	}
+
+	cout << "I am task " << taskid << endl;
+
+	float previous_step = interval_begin() + taskid * (tasks_per_id * step_size());
+
+	cout << "Task " << taskid << ": my interval begins with " << previous_step << endl;
 	double myresult = 0.0f;
-	for (float current_step = interval_begin() + step_size(); slice < tasks_per_id; current_step += step_size(), slice++) {
+	for (float current_step = previous_step + step_size(); slice < tasks_per_id; current_step += step_size(), slice++) {
+		cout << "Task " << taskid << " integrating interval " << previous_step << " - " << current_step << endl;
+		cout << "Task " << taskid << ": slice " << slice+1 << " of " << tasks_per_id << endl;
 		myresult += IntegrateInterval(previous_step, current_step);
 		previous_step = current_step;
 	}
+
+	cout << "Task " << taskid << ": my result = " << myresult << endl;
 
 	int rc = MPI_Reduce(&myresult, &result, 1, MPI_DOUBLE, MPI_SUM,
                    MASTER, MPI_COMM_WORLD);
@@ -50,18 +64,5 @@ void NewtonCotes::Integrate()
 		printf("%d: failure on mpc_reduce\n", taskid);
 
 	if (taskid == MASTER)
-		cout << "Result: " << result << endl;
-}
-
-double NewtonCotes::ErrorWithDerivative(double(*derivative)(double))
-{
-	double result = 0.0f;
-	int slice = 0;
-
-	float previous_step = interval_begin();
-	for (float current_step = interval_begin() + step_size(); slice < slicing(); current_step += step_size(), slice++) {
-		result += (pow(current_step - previous_step, 3.0f) / 24.0f) * derivative(interval_begin());
-	}
-
-	return result;
+		cout << ">>>>>FINAL RESULT: " << result << endl;
 }

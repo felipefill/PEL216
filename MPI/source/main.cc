@@ -74,9 +74,13 @@ double FunctionExercCFourthDerivative(double x) {
 
 void Print(const char * title, double (*function)(double), double (*second_derivative)(double), double (*fourth_derivative)(double))
 {
+	int taskid;
 	NewtonCotes newton_cotes = NewtonCotes(function, 0.0f, 1.0f, 10);
 
-	cout << "\n\n\n" << title << endl;
+	MPI_Comm_rank(MPI_COMM_WORLD,&taskid);
+
+	if (taskid == 0)
+		cout << "\n" << title << endl;
 
 	newton_cotes.Integrate();
 }
@@ -92,3 +96,104 @@ int main(int argc, char ** argv)
 	MPI_Finalize();
 	return 0;
 }
+
+/*
+Exercicio A
+There will be 2 tasks.
+Each task is taking up an avearage of 5
+I am task 0
+Task 0: my interval begins with 0
+Task 0 integrating interval 0 - 0.1
+Task 0: slice 1 of 5
+Task 0 integrating interval 0.1 - 0.2
+Task 0: slice 2 of 5
+Task 0 integrating interval 0.2 - 0.3
+Task 0: slice 3 of 5
+Task 0 integrating interval 0.3 - 0.4
+Task 0: slice 4 of 5
+Task 0 integrating interval 0.4 - 0.5
+Task 0: slice 5 of 5
+Task 0: my result = 0.648451
+
+I am task 1
+Task 1: my interval begins with 0.5
+Task 1 integrating interval 0.5 - 0.6
+Task 1: slice 1 of 5
+Task 1 integrating interval 0.6 - 0.7
+Task 1: slice 2 of 5
+Task 1 integrating interval 0.7 - 0.8
+Task 1: slice 3 of 5
+Task 1 integrating interval 0.8 - 0.9
+Task 1: slice 4 of 5
+Task 1 integrating interval 0.9 - 1
+Task 1: slice 5 of 5
+Task 1: my result = 1.06912
+
+>>>>>FINAL RESULT: 1.71757
+
+Exercicio B
+There will be 2 tasks.
+Each task is taking up an avearage of 5
+I am task 0
+Task 0: my interval begins with 0
+Task 0 integrating interval 0 - 0.1
+Task 0: slice 1 of 5
+Task 0 integrating interval 0.1 - 0.2
+Task 0: slice 2 of 5
+Task 0 integrating interval 0.2 - 0.3
+Task 0: slice 3 of 5
+Task 0 integrating interval 0.3 - 0.4
+Task 0: slice 4 of 5
+Task 0 integrating interval 0.4 - 0.5
+Task 0: slice 5 of 5
+Task 0: my result = 0.478546
+
+I am task 1
+Task 1: my interval begins with 0.5
+Task 1 integrating interval 0.5 - 0.6
+Task 1: slice 1 of 5
+Task 1 integrating interval 0.6 - 0.7
+Task 1: slice 2 of 5
+Task 1 integrating interval 0.7 - 0.8
+Task 1: slice 3 of 5
+Task 1 integrating interval 0.8 - 0.9
+Task 1: slice 4 of 5
+Task 1 integrating interval 0.9 - 1
+Task 1: slice 5 of 5
+Task 1: my result = 0.309557
+
+>>>>>FINAL RESULT: 0.788103
+
+Exercicio C
+There will be 2 tasks.
+Each task is taking up an avearage of 5
+I am task 0
+Task 0: my interval begins with 0
+Task 0 integrating interval 0 - 0.1
+Task 0: slice 1 of 5
+Task 0 integrating interval 0.1 - 0.2
+Task 0: slice 2 of 5
+Task 0 integrating interval 0.2 - 0.3
+Task 0: slice 3 of 5
+Task 0 integrating interval 0.3 - 0.4
+Task 0: slice 4 of 5
+Task 0 integrating interval 0.4 - 0.5
+Task 0: slice 5 of 5
+Task 0: my result = 0.461606
+
+I am task 1
+Task 1: my interval begins with 0.5
+Task 1 integrating interval 0.5 - 0.6
+Task 1: slice 1 of 5
+Task 1 integrating interval 0.6 - 0.7
+Task 1: slice 2 of 5
+Task 1 integrating interval 0.7 - 0.8
+Task 1: slice 3 of 5
+Task 1 integrating interval 0.8 - 0.9
+Task 1: slice 4 of 5
+Task 1 integrating interval 0.9 - 1
+Task 1: slice 5 of 5
+Task 1: my result = 0.285525
+
+>>>>>FINAL RESULT: 0.747131
+*/
